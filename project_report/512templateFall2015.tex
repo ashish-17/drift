@@ -1,0 +1,136 @@
+\documentclass[10pt,conference]{IEEEtran}
+
+\ifCLASSINFOpdf
+	\usepackage[pdftex]{graphicx}
+	%\graphicspath{{./figs/}}
+	\DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+	\usepackage[dvips]{graphicx}
+	%\graphicspath{{./figs/}}
+	\DeclareGraphicsExtensions{.eps}
+\fi
+
+\usepackage[cmex10]{amsmath}
+\usepackage[tight,footnotesize]{subfigure}
+\usepackage{xcolor}
+\usepackage[lined,ruled]{algorithm2e}
+
+\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+\usetikzlibrary{arrows}
+
+\usepackage[]{algorithm2e}
+
+\newtheorem{property}{Property}
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{question}{Question}
+\newtheorem{definition}{Definition}
+\newtheorem{corollary}{Corollary}
+
+\makeatletter
+\pgfdeclareshape{datastore}{
+\inheritsavedanchors[from=rectangle]
+\inheritanchorborder[from=rectangle]
+\inheritanchor[from=rectangle]{center}
+\inheritanchor[from=rectangle]{base}
+\inheritanchor[from=rectangle]{north}
+\inheritanchor[from=rectangle]{north east}
+\inheritanchor[from=rectangle]{east}
+\inheritanchor[from=rectangle]{south east}
+\inheritanchor[from=rectangle]{south}
+\inheritanchor[from=rectangle]{south west}
+\inheritanchor[from=rectangle]{west}
+\inheritanchor[from=rectangle]{north west}
+\backgroundpath{
+    %  store lower right in xa/ya and upper right in xb/yb
+\southwest \pgf@xa=\pgf@x \pgf@ya=\pgf@y
+\northeast \pgf@xb=\pgf@x \pgf@yb=\pgf@y
+\pgfpathmoveto{\pgfpoint{\pgf@xa}{\pgf@ya}}
+\pgfpathlineto{\pgfpoint{\pgf@xb}{\pgf@ya}}
+\pgfpathmoveto{\pgfpoint{\pgf@xa}{\pgf@yb}}
+\pgfpathlineto{\pgfpoint{\pgf@xb}{\pgf@yb}}
+ }
+}
+\makeatother
+
+\newcommand{\riham}[1]{{\color{red}{#1}}}
+\newcommand{\james}[1]{{\color{blue}{#1}}}
+
+
+\begin{document}
+
+\title{Project Timeline - Fall 2015}
+\author{
+\IEEEauthorblockN{Ashish Jindal}
+\IEEEauthorblockA{Rutgers University\\ Piscataway, NJ, USA\\
+Email: ashish.jindal@rutgers.edu}
+\and
+\IEEEauthorblockN{Yikun Xian}
+\IEEEauthorblockA{Rutgers University\\
+ Piscataway, NJ, USA\\
+ Email: alan1936@cs.rutgers.edu}
+\and
+\IEEEauthorblockN{Sanjivi Muttena}
+\IEEEauthorblockA{Rutgers University\\
+ Piscataway, NJ, USA\\
+ Email: alan1936@cs.rutgers.edu}
+}
+
+\maketitle
+\begin{abstract}
+\textnormal{
+Events in the past, play a major role in shaping our future. World Wide Web has all the information related to such events, but it is scattered all over the web and there is no automated way to combine this information and study such events for entities of interest. Our aim is to build a system which can collect such data from web and use it to build a time-line of major events pertaining to an entity. Here entity is a generic term we are using to represent an organization, country, person etc.
+}
+\end{abstract}
+%\onecolumn \maketitle \normalsize \vfill
+
+\IEEEpeerreviewmaketitle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Project Description}\label{sec:1. Project Description}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textnormal{
+
+Project playback is about gathering data from web using various web scrapping methods and then extract information about events of interest from the collected data using various machine learning techniques. We will be using Java to develop most of our system components along with a backend built using hadoop and mongoDB. Our project falls in two categories "Massive Algorithmics" and "Scalable Algorithms Infrastructure". 
+
+We believe that a time-line view of events and activities for an entity of interest will give a new perspective on exploring data on internet. Instead of seeing 
+
+In this project we will be scraping information from web to obtain information about various events of interest pertaining to an entity and store it on a Hadoop based backend, where we will be using machine learning techniques to extract and classify the events of interest. Our project falls in two categories "Massive Algorithmics" and "Scalable Algorithms Infrastructure". 
+
+Insert your overall project description here. Specify the project type according to the posted sakai announcement.What is it that you are proposing?. Why is it useful?. Is it feasible to complete your project within the semester?.  Is it a novel idea?  What are the main stumbling blocks? What is the timeline for your project progress?. How are you planning to reach the major milestones?. 
+}
+
+The project has four stages: Gathering, Design, Infrastructure Implementation, and User Interface.
+
+%\subsection{Stage1 - The Requirement Gathering Stage. } \label{sec:1	Requirement Gathering Stage. } 
+%\input{Stage1.tex}
+\subsection{Stage1 - The Requirement Gathering Stage. }\label{sec:1 Requirement Gathering Stage. }
+%%%%%%%
+\input{Stage1.tex}
+
+\subsection{Stage2 - The Design Stage. }\label{sec: 2:The Design Stage.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Stage2.tex}
+
+\subsection{Stage3 - The Implementation Stage. }\label{sec: 3 The Implementation Stage.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Stage3.tex}
+
+\subsection{Stage4 -	User Interface. }\label{sec: 4. User Interface.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Stage4.tex}
+
+\section{Project Highlights.}\label{sec:7. Project Highlights.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Highlights.tex}
+
+
+\bibliographystyle{IEEEtran}
+%\bibliography{IEEEabrv,bib_queyroi_abello2013}
+%\bibliography{bib_queyroi_abello2013}
+
+\end{document}
+
+
