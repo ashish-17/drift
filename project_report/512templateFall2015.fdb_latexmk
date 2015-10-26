@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1445853794 "512templateFall2015.tex" "512templateFall2015.pdf" "512templateFall2015" 1445853794
+["pdflatex"] 1445885378 "512templateFall2015.tex" "512templateFall2015.pdf" "512templateFall2015" 1445885378
   "/etc/texmf/web2c/texmf.cnf" 1445845424 1101 af7716885e081ab43982cab7b4672c1a ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
@@ -135,14 +135,14 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1392645748 31083 1dfd8bf685ce0009c40532fedf8a7c53 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1445845520 1346346 7f2b8b715a9ddb095afe3697a6ba02b5 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1445845478 3822875 37199fa00111e5801b2e79ca5f17bfa4 ""
-  "512templateFall2015.aux" 1445853794 1083 67ee853886d5bca3bd1770075e3e2852 ""
-  "512templateFall2015.tex" 1445853794 4760 0bcf9edf809a3b7604e57d5d319444b8 ""
+  "512templateFall2015.aux" 1445885378 1083 47b52705a400d2e6f9700681c86513fe ""
+  "512templateFall2015.tex" 1445885378 7051 23ed4ef46f3037a6be94d0e7d37075ef ""
   "Highlights.tex" 1445044762 1732 ef89b0eb41730e40df81b4bc950f6e59 ""
   "Stage1.tex" 1445042396 2653 9d44be7685e40418150cb41984fa2cff ""
   "Stage2.tex" 1445013394 1879 6c239422ffcc253b5834d1ec76b6b75d ""
   "Stage3.tex" 1445017008 1776 80711c3dddc4fd736cd623c427dd0849 ""
   "Stage4.tex" 1445043020 2616 b84537610429e98d74695c84a5607e42 ""
   (generated)
-  "512templateFall2015.aux"
   "512templateFall2015.pdf"
+  "512templateFall2015.aux"
   "512templateFall2015.log"
