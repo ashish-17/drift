@@ -12,8 +12,8 @@
 hs_err_pid*
 
 # Latex Files
-*.aux
-*.log
+#*.aux
+#*.log
 
 # Mac Files
 #.DS_Store
