@@ -1,12 +1,5 @@
 \textnormal{
-. Users interested in entities like organizations, companies, people etc. can use it as a single source where all other data of interest is available. Enterprises can use the time line view to analyse their past events and how they helped in there advancement. Our system will also be exposing a REST api for researchers interested in our event data. It can be used to map the events with the stock prices or marketing decisions, which can help them come up with better approaches for the same.
-
-Get a realistic project idea that includes potential real world scenarios,
-with a description of the different user types along with their interactions with the system 
-as well as the system feedback to them, according to their information needs. 
-This stage also requires the specification of the different constraints and restrictions
-that need to be enforced depending on the different types of user (system interactions). 
-The deliverables for this stage include the following items:
+Following are the deliverables for this stage:
 } 
 
 \begin{itemize} 
@@ -20,31 +13,66 @@ The deliverables for this stage include the following items:
 
 \end{itemize}
 
-Please insert your deliverables for Stage1 as follows:
-
 \begin{itemize} 
 \item{The general system description: } 
 Our project is like a minimalistic search engine which gives collated information about the searched item in form of a time line.
-\item{The three types of users (grouped by their data access/update rights): }
-People exploring web, Enterprises and researchers interested in event data, as follows:
+\item{The types of users (grouped by their data access/update rights): }
 \item{The user's interaction modes: }
-Please insert the user's interaction modes here.
+People exploring the web can access the event data by searching for the name of the entity they are interested in.
 \item{The real world scenarios: }
 Please insert the real world scenarios in here, as follows.
 	\begin{itemize} 
 	\item{Scenario1 description: }
-	Please insert Scenario1 description here.
+	A Person trying to get insight into a company like "Microsoft".
 	\item{System Data Input for Scenario1: }
-	Please insert System Data Input for Scenario1 here.
+	"Microsoft".
 	\item{Input Data Types for Scenario1: }
-	Please insert Input Data Types for Scenario1 here.
+	String (Spaces allowed).
 	\item{System Data Output for Scenario1: }
-	Please insert System Data Output for Scenario1 here.
+	All the data related to "Microsoft" placed on a timeline.
 	\item{Output Data Types for Scenario1: }
-	Please insert Output Data Types for Scenario1 in here.
-	\item {Please repeat that pattern for each scenario (at least 2 scenarios per user).}
+	Date of event, text corresponding to the event and URLs of the sources of information.
+	\item{Scenario1 description: }
+	A student trying researching about some famous person like "Alan Turing".
+	\item{System Data Input for Scenario1: }
+	"Alan Turing".
+	\item{Input Data Types for Scenario1: }
+	String (Spaces allowed).
+	\item{System Data Output for Scenario1: }
+	All the event's data related to "Alan Turing" placed on a timeline.
+	\item{Output Data Types for Scenario1: }
+	Date of event, text corresponding to the event and URLs of the sources of information.
+	}
 	\end{itemize}
-Please repeat that pattern for each user type.
+	
+\item{The user's interaction modes: }
+Researchers interested in our event data.
+\item{The real world scenarios: }
+Please insert the real world scenarios in here, as follows.
+	\begin{itemize} 
+	\item{Scenario1 description: }
+	Researchers at a company 'A' trying to study their stock fluctuations over the past months and want to map the stock data to the event's data.
+	\item{System Data Input for Scenario1: }
+	A REST request.
+	\item{Input Data Types for Scenario1: }
+	String (URL).
+	\item{System Data Output for Scenario1: }
+	Date of event, text corresponding to the event and URLs of the sources of information.
+	\item{Output Data Types for Scenario1: }
+	JSON.
+	\item{Scenario1 description: }
+	Students at a university 'B' want to study the marketing and publicity patterns for multiple organizations.
+	\item{System Data Input for Scenario1: }
+	Multiple REST requests, one for each organization.
+	\item{Input Data Types for Scenario1: }
+	String (URL).
+	\item{System Data Output for Scenario1: }
+	All the event's data consisting of date of event, text corresponding to the event and URLs of the sources of information.
+	\item{Output Data Types for Scenario1: }
+	JSON
+	}
+	\end{itemize}
+	
 \item{ Project Time line and Divison of Labor.}
 The project has three main components - Web-scrapper over hadoop, Web-application with mongoDB backend and Machine learning techniques used over hadoop to extract events of interest. Each of the team member will be responsible for completion of one of the above tasks, including work related to development, testing and documentation. We estimate the project completion in about 6 weeks. 
 
