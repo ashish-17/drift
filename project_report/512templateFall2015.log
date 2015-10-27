@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.10.26)  26 OCT 2015 22:00
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.10.26)  26 OCT 2015 22:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -664,7 +664,7 @@ e
 ))
 ABD: EveryShipout initializing macros
 Runaway argument?
-{ Project playback is about gathering data from web using various web\ETC.
+{ 
 ! Paragraph ended before \text@command was complete.
 <to be read again> 
                    \par 
@@ -682,17 +682,14 @@ l.102 }
 You've closed more groups than you opened.
 Such booboos are generally harmless, so keep going.
 
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
-
-
-] (./Stage1.tex
+(./Stage1.tex
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 6.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 6.
 
 ! Extra }, or forgotten \endgroup.
-l.45 	}
+l.33 	}
        
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -700,8 +697,12 @@ you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+
+
+]
 ! Extra }, or forgotten \endgroup.
-l.73 	}
+l.60 	}
        
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -710,38 +711,12 @@ the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
 ! Too many }'s.
-l.81 }
+l.85 }
       
 You've closed more groups than you opened.
 Such booboos are generally harmless, so keep going.
 
-) (./Stage2.tex [2]
-! Extra }, or forgotten \endgroup.
-l.29 ... with its description and justification. }
-                                                  
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Too many }'s.
-l.33 }
-      
-You've closed more groups than you opened.
-Such booboos are generally harmless, so keep going.
-
-) (./Stage3.tex) (./Stage4.tex
-! Extra }, or forgotten \endgroup.
-l.47 }
-      
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-) (./Highlights.tex [3])
+)
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -753,44 +728,25 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-
-! LaTeX Error: \begin{itemize} on input line 18 ended by \end{document}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.133 \end{document}
-                    
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-[4
-
-] (./512templateFall2015.aux) )
-(\end occurred inside a group at level 1)
-
-### semi simple group (level 1) entered at line 18 (\begingroup)
-### bottom level 
+[2] (./512templateFall2015.aux) ) 
 Here is how much of TeX's memory you used:
- 14663 strings out of 493304
- 285958 string characters out of 6139870
- 397481 words of memory out of 5000000
- 17831 multiletter control sequences out of 15000+600000
+ 14647 strings out of 493304
+ 285721 string characters out of 6139870
+ 395427 words of memory out of 5000000
+ 17827 multiletter control sequences out of 15000+600000
  35192 words of font info for 64 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 56i,9n,56p,1290b,389s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/ut
-mri8a.pfb>
-Output written on 512templateFall2015.pdf (4 pages, 59719 bytes).
+ 56i,9n,56p,611b,277s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips
+/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
+7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/urw/times/utmri8a.pfb>
+Output written on 512templateFall2015.pdf (2 pages, 49643 bytes).
 PDF statistics:
- 41 PDF objects out of 1000 (max. 8388607)
- 29 compressed objects within 1 object stream
+ 35 PDF objects out of 1000 (max. 8388607)
+ 25 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

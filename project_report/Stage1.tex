@@ -1,26 +1,14 @@
 \textnormal{
 Following are the deliverables for this stage:
-} 
-
-\begin{itemize} 
-\item{Our project is like a minimalistic search engine which gives a collated information in form of a time line.} 
-
-\item{ This system can be used by people exploring the web for information, it can be used by enterprises and also by researchers analysing statistical data. }
-	
-\item{ Enterprises can use the time line view to analyse their past events and how they helped in there advancement. They can also use it to analyse their competitor's timeline to study and compare the expansion over the time.}
-
-\item{ Our system will also be exposing a REST api for researchers interested in our event data. Researchers can use this event data and map it with other statistical information like variation of stock prices over the time, popularity index etc. to get a newer perspective on data.}
-
-\end{itemize}
+}
 
 \begin{itemize} 
 \item{The general system description: } 
 Our project is like a minimalistic search engine which gives collated information about the searched item in form of a time line.
 \item{The types of users (grouped by their data access/update rights): }
 \item{The user's interaction modes: }
-People exploring the web can access the event data by searching for the name of the entity they are interested in.
+Keyword based search for people exploring the web.
 \item{The real world scenarios: }
-Please insert the real world scenarios in here, as follows.
 	\begin{itemize} 
 	\item{Scenario1 description: }
 	A Person trying to get insight into a company like "Microsoft".
@@ -32,23 +20,22 @@ Please insert the real world scenarios in here, as follows.
 	All the data related to "Microsoft" placed on a timeline.
 	\item{Output Data Types for Scenario1: }
 	Date of event, text corresponding to the event and URLs of the sources of information.
-	\item{Scenario1 description: }
+	\item{Scenario2 description: }
 	A student trying researching about some famous person like "Alan Turing".
-	\item{System Data Input for Scenario1: }
+	\item{System Data Input for Scenario2: }
 	"Alan Turing".
-	\item{Input Data Types for Scenario1: }
+	\item{Input Data Types for Scenario2: }
 	String (Spaces allowed).
-	\item{System Data Output for Scenario1: }
+	\item{System Data Output for Scenario2: }
 	All the event's data related to "Alan Turing" placed on a timeline.
-	\item{Output Data Types for Scenario1: }
+	\item{Output Data Types for Scenario2: }
 	Date of event, text corresponding to the event and URLs of the sources of information.
 	}
 	\end{itemize}
 	
 \item{The user's interaction modes: }
-Researchers interested in our event data.
+REST api access for researchers interested in our event data.
 \item{The real world scenarios: }
-Please insert the real world scenarios in here, as follows.
 	\begin{itemize} 
 	\item{Scenario1 description: }
 	Researchers at a company 'A' trying to study their stock fluctuations over the past months and want to map the stock data to the event's data.
@@ -60,22 +47,39 @@ Please insert the real world scenarios in here, as follows.
 	Date of event, text corresponding to the event and URLs of the sources of information.
 	\item{Output Data Types for Scenario1: }
 	JSON.
-	\item{Scenario1 description: }
+	\item{Scenario2 description: }
 	Students at a university 'B' want to study the marketing and publicity patterns for multiple organizations.
-	\item{System Data Input for Scenario1: }
+	\item{System Data Input for Scenario2: }
 	Multiple REST requests, one for each organization.
-	\item{Input Data Types for Scenario1: }
+	\item{Input Data Types for Scenario2: }
 	String (URL).
-	\item{System Data Output for Scenario1: }
+	\item{System Data Output for Scenario2: }
 	All the event's data consisting of date of event, text corresponding to the event and URLs of the sources of information.
-	\item{Output Data Types for Scenario1: }
+	\item{Output Data Types for Scenario2: }
 	JSON
 	}
 	\end{itemize}
 	
 \item{ Project Time line and Divison of Labor.}
-The project has three main components - Web-scrapper over hadoop, Web-application with mongoDB backend and Machine learning techniques used over hadoop to extract events of interest. Each of the team member will be responsible for completion of one of the above tasks, including work related to development, testing and documentation. We estimate the project completion in about 6 weeks. 
-
-By the end of week 1 we expect to have identified all the seeding sources for our application and built a working web-scraper with a hadoop backend running in pseudo-distributed mode. After we have tested it's working on localhost, 1 person in team will be responsible for deploying hadoop in fully-distributed mode and running the web-scrapper on top of it. In parallel other members will start building the web application and exploring the machine learning techniques. At the end of week 2 we expect to have a web-scraper running on top of a fully-distributed hadoop and a functional web application front end. In week 3 we will link our web application with a mongoDB backend which will be loaded with some dummy data to make the web application fully operational to test its functionality. In parallel we will also be working on cleaning the data and exploring machine learning techniques to extract event data from it. At the end of week 4 we should be able to extract useful event information from hadoop and pass it onto mongoDB to be available for query from web application. In week 5 we will work on making the application stable. At the end of week 6 we should have a stable working system with final project report and presentation.
+The project has three main components - Web-scrapper running over hadoop, Web-application with mongoDB backend and Machine learning techniques used on hadoop to extract events of interest. Each of the team member will be responsible for completion of one of the above tasks, including work related to development, testing and documentation. We estimate the project completion in about 6 weeks. 
+	\begin{itemize}
+	\item{ Week 1:}
+	By the end of week 1 we expect to have identified all the seeding sources for our application and built a working web-scraper with a hadoop backend running in pseudo-distributed mode.
+	
+	\item{ Week 2:}
+	After we have tested it's working on localhost, 1 person in team will be responsible for deploying hadoop in fully-distributed mode and running the web-scrapper on top of it. In parallel other members will start building the web application and exploring the machine learning techniques. At the end of week 2 we expect to have a web-scraper running on top of a fully-distributed hadoop and a functional web application front end. 
+	
+	\item{ Week 3:}
+	In week 3 we will link our web application with a mongoDB backend which will be loaded with some dummy data to make the web application fully operational to test its functionality. In parallel we will also be working on cleaning the data and exploring machine learning techniques to extract event data from it. 
+	
+	\item{ Week 4:}
+	At the end of week 4 we should be able to extract useful event information from hadoop and pass it onto mongoDB to be available for query from web application.
+	
+	\item{ Week 5:}
+	In week 5 we will work on testing and making the application stable.
+	
+	\item{ Week 6:}
+	 In week 5 we will work on making the application stable. At the end of week 6 we should have a stable working system with final project report and presentation.
+	\end{itemize} s 
 \end{itemize}
 }
