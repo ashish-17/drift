@@ -60,7 +60,7 @@
 
 \begin{document}
 
-\title{CS512 Project (Fall 2015) - Playback}
+\title{CS512 (Fall 2015) - Project Playback}
 
 \author{%
 \IEEEauthorblockN{Ashish Jindal}
@@ -80,46 +80,56 @@ Email: sm1727@scarletmail.rutgers.edu}
 }
 
 \maketitle
+
 \begin{abstract}
-\textnormal{Events in the past, play a major role in shaping our future. World Wide Web has
-all the information related to such events, but it is scattered all over the
-web and there is no automated way to unite this information and study such
-events for entities of interest. Our aim is to build a system which can collect
-such data from web and use it to build a time-line of major events pertaining
-to an entity. Here entity is a generic term we are using to represent an
-organization, country, person etc.}
+\textnormal{%
+Events in the past play a major role in shaping our future. World Wide Web has
+abundant information related to such events, but it is scattered all over the
+web. There is no automated and efficient way to organize this information and
+to study such events for a specific entity of interest, where entity here
+refers to a generic term to represent an organization, country and person etc.
+This project aims to build a web-based automate system that can collect such
+data from heterogeneous online sources, extract condensed description of
+events, and integrate them into a timeline pertaining to an entity. This
+largely benefits those who would like to study history events of a certain
+company or organization in chronological order. 
+}
 \end{abstract}
-%\onecolumn \maketitle \normalsize \vfill
+
+\begin{IEEEkeywords}
+  \textnormal{Heterogeneous Sources, Event Extraction, Topic Model, Text Mining}
+\end{IEEEkeywords}
 
 \IEEEpeerreviewmaketitle
 
 \section{Project Description}\label{sec:project-description}
 
-Project playback is about gathering data from web using various web scrapping
+Project Playback is about gathering data from web using various web scrapping
 methods and then extracting information about events of interest from the
-collected data using various machine learning techniques. We will be using Java
+collected data using several machine learning algorithms. We will use Java
 to develop most of our system components along with a backend built using
-hadoop and mongoDB. Our project falls in two categories "Massive Algorithmics"
-and "Scalable Algorithms Infrastructure".
+Hadoop and MongoDB. Our project falls in two categories \textit{Massive
+Algorithmics} and \textit{Scalable Algorithms Infrastructure}.
 
-We believe that a time-line view of events and activities for an entity of
-interest will give a new perspective for exploring data on internet. Instead of
+We believe that a timeline view of events and activities for an entity of
+interest will give a new perspective for exploring data on Internet. Instead of
 viewing information organized in form of sections we will be showing it
-organized in form of a time-line. The intent is to give a bird's eye view of
+organized in form of a timeline. The intent is to give a bird's eye view of
 evolution of the entity over the time and study that evolution process based on
 data we call as the events of interest.
 
-It is feasible to complete the system in 6 weeks time if we consider only a
-limited set of entities to analyse. For e.g. if we limit the system's input to
-only consider fortune 500 companies or 200 most significant people in science
-field then we should be able to deliver a working system within 6 weeks. The
-main stumbling blocks for this project are identifying seeding sources for
-data, deploying a web-scraper with hadoop backend, cleaning the retrieved data,
-analysing the data using machine learning techniques and finally creating a web
-application to query for time-line data.
+It is feasible to complete the system in 6 weeks if we consider only a limited
+set of entities to analyse. For example, if we limit the system's input to only
+consider fortune 500 companies or 200 most significant people in computer
+science field, then we should be able to deliver a working system within 6
+weeks. The main stumbling blocks for this project are identifying seeding
+sources for data, integrating a real-time web-crawler into the system, cleaning
+the retrieved data, extracting events of condensed description, reorganizing
+events of companies and finally visualizing timeline data in a web-based
+system.
 
-The project has four stages: Gathering, Design, Infrastructure Implementation,
-and User Interface.
+The project has four stages: requirement gathering, design, infrastructure
+implementation, and user interface.
 
 \subsection{Stage1 - The Requirement Gathering Stage}
 \label{sec:requirement-gathering-stage}

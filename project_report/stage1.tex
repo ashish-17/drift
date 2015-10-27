@@ -1,79 +1,117 @@
 Following are the deliverables for this stage:
 
-\begin{itemize} 
-\item{The general system description: } 
-Our project is like a minimalistic search engine which gives collated information about the searched item in form of a time line.
-\item{The types of users (grouped by their data access/update rights): }
-\item{The user's interaction modes: }
-Keyword based search for people exploring the web.
-\item{The real world scenarios: }
-	\begin{itemize} 
-	\item{Scenario1 description: }
-	A Person trying to get insight into a company like "Microsoft".
-	\item{System Data Input for Scenario1: }
-	"Microsoft".
-	\item{Input Data Types for Scenario1: }
-	String (Spaces allowed).
-	\item{System Data Output for Scenario1: }
-	All the data related to "Microsoft" placed on a timeline.
-	\item{Output Data Types for Scenario1: }
-	Date of event, text corresponding to the event and URLs of the sources of information.
-	\item{Scenario2 description: }
-	A student trying researching about some famous person like "Alan Turing".
-	\item{System Data Input for Scenario2: }
-	"Alan Turing".
-	\item{Input Data Types for Scenario2: }
-	String (Spaces allowed).
-	\item{System Data Output for Scenario2: }
-	All the event's data related to "Alan Turing" placed on a timeline.
-	\item{Output Data Types for Scenario2: }
-	Date of event, text corresponding to the event and URLs of the sources of information.
-	\end{itemize}
-\item{The user's interaction modes: }
-REST api access for researchers interested in our event data.
-\item{The real world scenarios: }
-	\begin{itemize} 
-	\item{Scenario1 description: }
-	Researchers at a company 'A' trying to study their stock fluctuations over the past months and want to map the stock data to the event's data.
-	\item{System Data Input for Scenario1: }
-	A REST request.
-	\item{Input Data Types for Scenario1: }
-	String (URL).
-	\item{System Data Output for Scenario1: }
-	Date of event, text corresponding to the event and URLs of the sources of information.
-	\item{Output Data Types for Scenario1: }
-	JSON.
-	\item{Scenario2 description: }
-	Students at a university 'B' want to study the marketing and publicity patterns for multiple organizations.
-	\item{System Data Input for Scenario2: }
-	Multiple REST requests, one for each organization.
-	\item{Input Data Types for Scenario2: }
-	String (URL).
-	\item{System Data Output for Scenario2: }
-	All the event's data consisting of date of event, text corresponding to the event and URLs of the sources of information.
-	\item{Output Data Types for Scenario2: }
-	JSON
-	\end{itemize}
-	
-\item{ Project Time line and Divison of Labor.}
-The project has three main components - Web-scrapper running over hadoop, Web-application with mongoDB backend and Machine learning techniques used on hadoop to extract events of interest. Each of the team member will be responsible for completion of one of the above tasks, including work related to development, testing and documentation. We estimate the project completion in about 6 weeks. 
-	\begin{itemize}
-	\item{ Week 1:}
-	By the end of week 1 we expect to have identified all the seeding sources for our application and built a working web-scraper with a hadoop backend running in pseudo-distributed mode.
-	
-	\item{ Week 2:}
-	After we have tested it's working on localhost, 1 person in team will be responsible for deploying hadoop in fully-distributed mode and running the web-scrapper on top of it. In parallel other members will start building the web application and exploring the machine learning techniques. At the end of week 2 we expect to have a web-scraper running on top of a fully-distributed hadoop and a functional web application front end. 
-	
-	\item{ Week 3:}
-	In week 3 we will link our web application with a mongoDB backend which will be loaded with some dummy data to make the web application fully operational to test its functionality. In parallel we will also be working on cleaning the data and exploring machine learning techniques to extract event data from it. 
-	
-	\item{ Week 4:}
-	At the end of week 4 we should be able to extract useful event information from hadoop and pass it onto mongoDB to be available for query from web application.
-	
-	\item{ Week 5:}
-	In week 5 we will work on testing and making the application stable.
-	
-	\item{ Week 6:}
-	 In week 5 we will work on making the application stable. At the end of week 6 we should have a stable working system with final project report and presentation.
-	\end{itemize}
+\paragraph{General Description}
+This project is like a minimalistic search engine which gives collated
+information and events about the query company or person in form of a timeline.
+
+\paragraph{User Type 1}
+Job-hunters who want to know background of a company or a person.
+\begin{itemize}
+\item User Interaction Modes: Keyword based search for people exploring the web.
+\item Real World Scenarios:
+  \begin{itemize}
+  \item Scenario 1 Description: A Person trying to get insight into a company
+    like "Microsoft".
+  \item System Data Input for Scenario 1: "Microsoft".
+  \item Input Data Types for Scenario 1: String (Spaces allowed).
+  \item System Data Output for Scenario 1: All data related to "Microsoft"
+    placed on a timeline.
+  \item Output Data Types for Scenario 1: Date of event, text corresponding to
+    the event and URLs of the sources of information.
+  \item Scenario 2 Description: A student trying to know about some famous
+    person like "Alan Turing".
+  \item System Data Input for Scenario 2: "Alan Turing".
+  \item Input Data Types for Scenario 2: String (Spaces allowed).
+  \item System Data Output for Scenario 2: All the event's data related to
+    "Alan Turing" placed on a timeline.
+  \item Output Data Types for Scenario 2: Date of event, text corresponding to
+    the event and URLs of the sources of information.
+  \end{itemize}
+\end{itemize}
+
+\paragraph{User Type 2}
+Researchers or students who want to look for techniques or patents created by a
+person.
+\begin{itemize}
+\item User Interaction Modes: Keyword based search for people exploring the web.
+\item Real World Scenarios:
+  \begin{itemize}
+  \item Scenario 1 Description: A researcher who collects technique inventions
+    by a company like "Google".
+  \item System Data Input for Scenario 1: "Google".
+  \item Input Data Types for Scenario 1: String (Spaces allowed).
+  \item System Data Output for Scenario 1: All research data related to
+    "Google" placed on a timeline filtered by data category.
+  \item Output Data Types for Scenario 1: Date of event, text corresponding to
+    the event and URLs of the sources of information.
+  \item Scenario 2 Description: A student trying to collect papers by some
+    researchers like "James Abello".
+  \item System Data Input for Scenario 2: "James Abello".
+  \item Input Data Types for Scenario 2: String (Spaces allowed).
+  \item System Data Output for Scenario 2: List of papers published by "James
+    Abello" placed on a timeline.
+  \item Output Data Types for Scenario 2: Date of event, text corresponding to
+    the event and URLs of the sources of information.
+  \end{itemize}
+\end{itemize}
+
+\paragraph{User Type 3}
+Analysts who would like to fetch financial statistics data of a company
+\begin{itemize}
+\item User Interaction Modes: RESTful API access for researchers interested in
+  our event data.
+\item Real World Scenarios: 
+  \begin{itemize} 
+  \item Scenario 1 Description: Researchers at a company 'Bloomberg' trying to
+    study their stock fluctuations over the past months and want to map the
+    stock data to the event's data.
+  \item System Data Input for Scenario 1: A RESTful request of GET type.
+  \item Input Data Types for Scenario 1: String (URL).
+  \item System Data Output for Scenario 1: Date of event, text corresponding to
+    the event and URLs of the sources of information.
+  \item Output Data Types for Scenario 1: JSON.
+  \item Scenario 2 Description: Students in Rutgers University want to study
+    the marketing and publicity patterns for multiple organizations.
+  \item System Data Input for Scenario 2: Multiple REST requests, one for each
+    organization.
+  \item Input Data Types for Scenario 2: String (URL).
+  \item System Data Output for Scenario 2: All the event's data consisting of
+    date of event, text corresponding to the event and URLs of the sources of
+    information.
+  \item Output Data Types for Scenario 2: JSON
+  \end{itemize}
+\end{itemize}
+
+\paragraph{Project Timeline and Division of Labor}
+The project has three main components - Automated web scrapper/crawler, web
+application with MongoDB backend and timeline visualization, and Machine
+learning techniques used on Hadoop to extract events of interest. Each of the
+team member will be responsible for completion of one of the above tasks,
+including work related to development, testing and documentation. We estimate
+the project completion in about 6 weeks. 
+
+\begin{itemize}
+\item Week 1: By the end of week 1 we expect to have identified all the seeding
+  sources for our application and built a working multi-threaded web-scraper.
+\item Week 2: After we have tested it's working on localhost, 1 person in team
+  will be responsible for deploying Hadoop in fully-distributed mode which will
+  be integrated into web application. In parallel other members will start
+  building the web application and exploring the machine learning on event
+  extraction and topic models. At the end of week 2 we expect to have bunch of
+  data crawled by web-scraper and a functional web application front end with
+  Hadoop platform.
+\item Week 3: In week 3 we will link our web application with a MongoDB backend
+  which will be loaded with some dummy data to make the web application fully
+  operational to test its functionality. Meanwhile, we will also be working on
+  cleaning the data and testing some machine learning algorithm to extract event
+  data from it.
+\item Week 4: We will implement some effective models and integrate them into
+  web application. At the end of week 4 we should be able to extract useful
+  event information and save it into MongoDB to be available for query from web
+  application.
+\item Week 5: In week 5 we will work on testing and making the application
+  stable.
+\item Week 6: In week 6 we will work on making the application stable. At the
+  end of week 6 we should have a stable working system with final project
+  report and presentation.
 \end{itemize}
