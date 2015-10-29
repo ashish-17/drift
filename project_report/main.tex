@@ -83,16 +83,7 @@ Email: sm1727@scarletmail.rutgers.edu}
 
 \begin{abstract}
 \textnormal{%
-Events in the past play a major role in shaping our future. World Wide Web has
-abundant information related to such events, but it is scattered all over the
-web. However, there is no automated and efficient way to organize this
-information and to study such events for a specific entity of interest, where
-entity here refers to a generic term to represent an organization, country and
-person etc. This project aims to build a web-based system driven by Hadoop
-infrastructure that can collect data from heterogeneous online sources, extract
-condensed description of events, and integrate them into a timeline pertaining
-to an entity. This largely benefits those who would like to study history
-events of a certain company or organization in chronological order.
+The complexity of modern analytics needs is outstripping the available computing power of legacy systems. Hadoop compliments this need for storing and analyzing huge sets of information by providing a platform for parallel processing of large data sets stored over multiple machines. This project aims to setup a hadoop infrastructure and demonstrate its power for big data analysis. 
 }
 \end{abstract}
 
@@ -104,29 +95,7 @@ events of a certain company or organization in chronological order.
 
 \section{Project Description}\label{sec:project-description}
 
-Project Playback is about gathering data from web using various web scrapping
-methods and then extracting information about events of interest from the
-collected data using several machine learning algorithms. We will use Java
-to develop most of our system components along with a backend built using
-Hadoop and MongoDB. Our project falls in two categories \textit{Massive
-Algorithmics} and \textit{Scalable Algorithms Infrastructure}.
-
-We believe that a timeline view of events and activities for an entity of
-interest will give a new perspective for exploring data on Internet. Instead of
-viewing information organized in form of sections we will be showing it
-organized in form of a timeline. The intent is to give a bird's eye view of
-evolution of the entity over the time and study that evolution process based on
-data we call as the events of interest.
-
-It is feasible to complete the system in 6 weeks if we consider only a limited
-set of entities to analyse. For example, if we limit the system's input to only
-consider fortune 500 companies or 200 most significant people in computer
-science field, then we should be able to deliver a working system within 6
-weeks. The main stumbling blocks for this project are identifying seeding
-sources for data, integrating a real-time web-crawler into the system, cleaning
-the retrieved data, extracting events of condensed description, reorganizing
-events of companies and finally visualizing timeline data in a web-based
-system.
+Apache Hadoop is an open-source software framework written in Java for distributed storage and distributed processing of very large data sets on computer clusters built from commodity hardware. Hadoop stores data as it comes in - structured or unstructured - saving time on configuring data for relational databases. In our project we will store a large dataset in hadoop filesystem and use it for analysis of events from various sources like news, twitter etc. Our project falls in the category \textit{Scalable Algorithms Infrastructure}. The main stumbling points for this project are identifying a large dataset for hadoop, configuring hadoop for multiple clusters and building a data analytics system over hadoop.
 
 The project has four stages: requirement gathering, design, infrastructure
 implementation, and user interface.

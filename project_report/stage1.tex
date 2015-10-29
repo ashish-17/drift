@@ -1,117 +1,29 @@
 Following are the deliverables for this stage:
 
 \paragraph{General Description}
-This project is like a minimalistic search engine which gives collated
-information and events about the query company or person in form of a timeline.
+This project is about setting up an infrastructure for big data analytics using hadoop and demonstrate a data analytics application using event data from various sources like new, twitter etc.
 
 \paragraph{User Type 1}
-Job-hunters who want to know background of a company or a person.
+People interested in analysing data that can't be stored on a single machine.
 \begin{itemize}
-\item User Interaction Modes: Keyword based search for people exploring the web.
+\item User Interaction Modes: Hive query language.
 \item Real World Scenarios:
   \begin{itemize}
-  \item Scenario 1 Description: A Person trying to get insight into a company
-    like "Microsoft".
-  \item System Data Input for Scenario 1: "Microsoft".
-  \item Input Data Types for Scenario 1: String (Spaces allowed).
-  \item System Data Output for Scenario 1: All data related to "Microsoft"
-    placed on a timeline.
-  \item Output Data Types for Scenario 1: Date of event, text corresponding to
-    the event and URLs of the sources of information.
-  \item Scenario 2 Description: A student trying to know about some famous
-    person like "Alan Turing".
-  \item System Data Input for Scenario 2: "Alan Turing".
-  \item Input Data Types for Scenario 2: String (Spaces allowed).
-  \item System Data Output for Scenario 2: All the event's data related to
-    "Alan Turing" placed on a timeline.
-  \item Output Data Types for Scenario 2: Date of event, text corresponding to
-    the event and URLs of the sources of information.
-  \end{itemize}
-\end{itemize}
-
-\paragraph{User Type 2}
-Researchers or students who want to look for techniques or patents created by a
-person.
-\begin{itemize}
-\item User Interaction Modes: Keyword based search for people exploring the web.
-\item Real World Scenarios:
-  \begin{itemize}
-  \item Scenario 1 Description: A researcher who collects technique inventions
-    by a company like "Google".
-  \item System Data Input for Scenario 1: "Google".
-  \item Input Data Types for Scenario 1: String (Spaces allowed).
-  \item System Data Output for Scenario 1: All research data related to
-    "Google" placed on a timeline filtered by data category.
-  \item Output Data Types for Scenario 1: Date of event, text corresponding to
-    the event and URLs of the sources of information.
-  \item Scenario 2 Description: A student trying to collect papers by some
-    researchers like "James Abello".
-  \item System Data Input for Scenario 2: "James Abello".
-  \item Input Data Types for Scenario 2: String (Spaces allowed).
-  \item System Data Output for Scenario 2: List of papers published by "James
-    Abello" placed on a timeline.
-  \item Output Data Types for Scenario 2: Date of event, text corresponding to
-    the event and URLs of the sources of information.
-  \end{itemize}
-\end{itemize}
-
-\paragraph{User Type 3}
-Analysts who would like to fetch financial statistics data of a company
-\begin{itemize}
-\item User Interaction Modes: RESTful API access for researchers interested in
-  our event data.
-\item Real World Scenarios: 
-  \begin{itemize} 
-  \item Scenario 1 Description: Researchers at a company 'Bloomberg' trying to
-    study their stock fluctuations over the past months and want to map the
-    stock data to the event's data.
-  \item System Data Input for Scenario 1: A RESTful request of GET type.
-  \item Input Data Types for Scenario 1: String (URL).
-  \item System Data Output for Scenario 1: Date of event, text corresponding to
-    the event and URLs of the sources of information.
-  \item Output Data Types for Scenario 1: JSON.
-  \item Scenario 2 Description: Students in Rutgers University want to study
-    the marketing and publicity patterns for multiple organizations.
-  \item System Data Input for Scenario 2: Multiple REST requests, one for each
-    organization.
-  \item Input Data Types for Scenario 2: String (URL).
-  \item System Data Output for Scenario 2: All the event's data consisting of
-    date of event, text corresponding to the event and URLs of the sources of
-    information.
-  \item Output Data Types for Scenario 2: JSON
+  \item Scenario 1 Description: Processing of large server logs.
+  \item System Data Input for Scenario 1: Log files.
+  \item Input Data Types for Scenario 1: Structures log files.
+  \item System Data Output for Scenario 1: Information based on query.
+  \item Scenario 2 Description: Text mining.
+  \item System Data Input for Scenario 2: Big sources of textual information.
+  \item Input Data Types for Scenario 2: Text.
+  \item System Data Output for Scenario 2: Information based on query.
   \end{itemize}
 \end{itemize}
 
 \paragraph{Project Timeline and Division of Labor}
-The project has three main components - Automated web scrapper/crawler, web
-application with MongoDB backend and timeline visualization, and Machine
-learning techniques used on Hadoop to extract events of interest. Each of the
-team member will be responsible for completion of one of the above tasks,
-including work related to development, testing and documentation. We estimate
-the project completion in about 6 weeks. 
-
+We will start with studying about hadoop and map reduce systems and then  set up a hadoop system on local host. When we are successful in doing that we will find a small dataset, large enough to fit on a single system and start test analysis over it using hadoop. Then we will repeat the same process by setting up hadoop in pseudo distributed mode. Parallely two team members will start building the demo analytics application over hadoop. In the end we will setup hadoop on multiple clusters and deploy our application over it.
 \begin{itemize}
-\item Week 1: By the end of week 1 we expect to have identified all the seeding
-  sources for our application and built a working multi-threaded web-scraper.
-\item Week 2: After we have tested it's working on localhost, 1 person in team
-  will be responsible for deploying Hadoop in fully-distributed mode which will
-  be integrated into web application. In parallel other members will start
-  building the web application and exploring the machine learning on event
-  extraction and topic models. At the end of week 2 we expect to have bunch of
-  data crawled by web-scraper and a functional web application front end with
-  Hadoop platform.
-\item Week 3: In week 3 we will link our web application with a MongoDB backend
-  which will be loaded with some dummy data to make the web application fully
-  operational to test its functionality. Meanwhile, we will also be working on
-  cleaning the data and testing some machine learning algorithm to extract event
-  data from it.
-\item Week 4: We will implement some effective models and integrate them into
-  web application. At the end of week 4 we should be able to extract useful
-  event information and save it into MongoDB to be available for query from web
-  application.
-\item Week 5: In week 5 we will work on testing and making the application
-  stable.
-\item Week 6: In week 6 we will work on making the application stable. At the
-  end of week 6 we should have a stable working system with final project
-  report and presentation.
+	\item Week 1 and Week 2: Work on requirement gathering and design of system using hadoop.
+	\item Week 3 and week 4: Setup hadoop infrastructure over multiple clusters and create an analytics application demonstrating big data analysis using hadoop.
+	\item Week 5: Test the application and prepare the necessary documentation & project report.
 \end{itemize}
