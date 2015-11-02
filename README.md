@@ -2,7 +2,7 @@
 
 ## Directory Structure
 .
-|-- project_report
+.-- project_report
 |   |-- main.tex
 |   |-- main.bib
 |   |-- parts
