@@ -3,7 +3,7 @@
 ## Directory Structure
 .
 |-- project_report
-|   |-- main.tex
+>   |-- main.tex
 |   |-- main.bib
 |   |-- parts
 |   |   |-- abstract.tex
