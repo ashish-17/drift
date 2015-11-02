@@ -16,6 +16,7 @@ hs_err_pid*
 *.log
 *.bbl
 *.blg
+*.out
 
 # Mac Files
 .DS_Store
