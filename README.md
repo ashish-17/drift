@@ -13,6 +13,7 @@
 |   |   |-- stage3.tex
 |   |   |-- stage4.tex
 |   |   |-- highlights.tex 
+|   |-- figures
 |-- README.md
 |-- LICENSE
 
