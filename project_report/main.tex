@@ -1,21 +1,24 @@
 \documentclass[10pt,conference]{IEEEtran}
 
 \ifCLASSINFOpdf
-	\usepackage[pdftex]{graphicx}
-	\graphicspath{{./figures/}}
-	\DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+  \usepackage[pdftex]{graphicx}
+  \graphicspath{{./figures/}}
+  \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
 \else
-	\usepackage[dvips]{graphicx}
-	%\graphicspath{{./figures/}}
-	\DeclareGraphicsExtensions{.eps}
+  \usepackage[dvips]{graphicx}
+  %\graphicspath{{./figures/}}
+  \DeclareGraphicsExtensions{.eps}
 \fi
 
 \usepackage[cmex10]{amsmath}
 \usepackage[tight,footnotesize]{subfigure}
 \usepackage{xcolor}
-\usepackage[lined,ruled]{algorithm2e}
 \usepackage[latin1]{inputenc}
 \usepackage{tikz}
+\usepackage[noend]{algpseudocode}
+\usepackage{algorithm}
+\usepackage{multirow}
+
 \usetikzlibrary{shapes}
 \usetikzlibrary{arrows}
 
