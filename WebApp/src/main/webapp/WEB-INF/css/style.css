@@ -1,0 +1,25 @@
+html {
+  height:100%;
+  padding:0;
+  margin:0; 
+}
+body {
+  height:100%;
+  min-height:100%;
+  margin:0;
+  padding-top:50px;
+  font-size:16px;
+}
+footer{
+  margin-top:20px;
+  padding-top:20px;
+  padding-bottom:20px;
+  color:#777;
+  text-align:center;
+  border-top:1px solid grey;
+}
+.container {
+  width: 1024px; 
+  min-height:100%;
+  position:relative;
+}
