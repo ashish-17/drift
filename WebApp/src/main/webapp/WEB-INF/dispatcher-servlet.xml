@@ -2,13 +2,15 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:context="http://www.springframework.org/schema/context"
     xmlns:mvc="http://www.springframework.org/schema/mvc"
-    xsi:schemaLocation="
+    xmlns:mongo="http://www.springframework.org/schema/mongo"
+    xsi:schemaLocation="http://www.springframework.org/schema/context
+    	http://www.springframework.org/schema/context/spring-context.xsd
     	http://www.springframework.org/schema/mvc 
     	http://www.springframework.org/schema/mvc/spring-mvc.xsd
         http://www.springframework.org/schema/beans 
         http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/context 
-        http://www.springframework.org/schema/context/spring-context.xsd">
+        http://www.springframework.org/schema/data/mongo 
+        http://www.springframework.org/schema/data/mongo/spring-mongo.xsd">
 
 	<!-- Scan Annotation in base package -->
     <context:component-scan base-package="edu.ru.cs512" />
@@ -29,6 +31,15 @@
     <mvc:resources mapping="/fonts/**" location="/WEB-INF/fonts/" cache-period="31556926"/> 
     
     <!-- Default view page -->
-    <mvc:view-controller path="/" view-name="pageview" />
-  	
+    <mvc:view-controller path="/" view-name="pagecount" />
+    
+    <!-- Set up MongoDB -->
+    <!--
+    <mongo:mongo host="127.0.0.1" port="27017" />
+    <mongo:db-factory dbname="test" />
+    <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+    	<constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />
+    </bean>
+  	-->
+
 </beans>
