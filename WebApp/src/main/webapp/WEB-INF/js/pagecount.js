@@ -38,8 +38,8 @@ $(function() {
       var seriesOptions = [];
       for ( var title in result) {
         var data = [];
-        for ( var i in result[title]) {
-          data.push([ result[title][i]['date'], parseInt(result[title][i]['viewCount']) ]);
+        for (var i in result[title]['pageData']) {
+          data.push([result[title]['pageData'][i]['date'], parseInt(result[title]['pageData'][i]['viewCount']) ]);
         }
         seriesOptions.push({
           name : title,
@@ -49,27 +49,40 @@ $(function() {
       callback(seriesOptions);
     });
   }
-
-  $.getJSON(path + '/pagecount/titles', function(result) {
-    var item = $('#select-search');
-    item.html();
-    for ( var i in result) {
-      item.append($('<option></option>').attr('value', result[i]).text(
-          result[i]));
-    }
-    item.chosen({
-      allow_single_deselect : true
-    });
-  });
-
+  
   $('#btn-search').click(function() {
-    var titles = [];
+		var searchInput = $('#search-input');
+		var titles=[];
+		titles.push(searchInput.val());
+		if(titles.length > 0) {
+		      loadData(titles, resetSeries);
+		    }
+		
+    /*var titles = [];
     $('li.search-choice span').each(function() {
       titles.push($(this).text());
     });
     if(titles.length > 0) {
       loadData(titles, resetSeries);
-    }
+    }*/
   });
 
 });
+
+function refreshList() {
+	var searchInput = $('#search-input');
+	var prefix = searchInput.val();
+	if (prefix.length > 2) {
+		$.getJSON(path + '/pagecount/titles/' + prefix, function(result) {
+			var searchItems = $('#search-items');
+			searchItems.empty();
+			for ( var i in result) {
+				searchItems.append($('<option></option>').attr('value', result[i])
+						.text(result[i]));
+			}
+			searchItems.chosen({
+				allow_single_deselect : true
+			});
+		});
+	}
+};

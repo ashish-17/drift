@@ -7,10 +7,10 @@ import edu.ru.cs512.model.PageCount;
 
 public interface PageCountService extends BaseService {
     
-    public List<PageCount> findByTitle(String title);
+    public PageCount findByTitle(String title);
     
-    public Map<String, List<PageCount>> findByTitles(String[] titles);
+    public Map<String, PageCount> findByTitles(String[] titles);
     
-    public List<String> listTitles();
+    public List<String> listTitles(String prefix);
 
 }

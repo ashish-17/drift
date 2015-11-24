@@ -9,7 +9,7 @@ import edu.ru.cs512.service.BaseService;
 
 public class BaseServiceImpl implements BaseService {
     
-    protected String collection = "page_count";
+    protected String collection = "page_counts";
     
     @Override
     public MongoOperations getOpts() {

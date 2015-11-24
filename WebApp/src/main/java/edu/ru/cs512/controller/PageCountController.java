@@ -30,9 +30,9 @@ public class PageCountController {
         return pcService.findByTitles(titles.split(","));
     }
     
-    @RequestMapping(value="/titles", method=RequestMethod.GET)
+    @RequestMapping(value="/titles/{prefix}", method=RequestMethod.GET)
     @ResponseBody
-    public List<String> listTitles() {
-        return pcService.listTitles();
+    public List<String> listTitles(@PathVariable String prefix) {
+        return pcService.listTitles(prefix);
     }
 }

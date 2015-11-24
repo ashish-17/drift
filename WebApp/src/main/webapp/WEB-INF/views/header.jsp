@@ -30,13 +30,13 @@
 </head>
 <body>
 	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container">
 			<div class="navbar-header">
 				<a class="navbar-brand">Hadoop-Driven Analysis</a>
 			</div>
+		<div class="container">
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li class="active">
+					<li>
 					<a href="/data"> 
 					<span class="glyphicon glyphicon-home" aria-hidden="true"></span> <span>&nbsp;Home</span>
 					</a>
@@ -45,5 +45,3 @@
 			</div>
 		</div>
 	</nav>
-
-	<div class="container">

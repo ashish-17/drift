@@ -11,7 +11,7 @@ import com.mongodb.MongoClient;
 @Configuration
 public class SpringMongoConfig {
 
-    public final static String db = "test";
+    public final static String db = "mongo_hadoop";
 
     @Bean
     public MongoDbFactory mongoDbFactory() throws Exception {
