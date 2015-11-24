@@ -26,7 +26,14 @@ public class PageCountController {
     
     @RequestMapping(value="/{title}", method=RequestMethod.GET)
     @ResponseBody
-    public List<PageCount> findByTitle(@PathVariable String title) {
-        return pcService.findByTitle(title);
+    public Object findByTitle(@PathVariable String title) {
+        String[] titles = title.split(",");
+        if(titles.length == 1) {
+            return pcService.findByTitle(title);
+        }
+        else if(title.length() > 1){
+            return pcService.findByTitles(titles);
+        }
+        return "";
     }
 }

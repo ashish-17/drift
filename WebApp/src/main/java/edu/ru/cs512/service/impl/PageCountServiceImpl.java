@@ -1,32 +1,33 @@
 package edu.ru.cs512.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
-import edu.ru.cs512.config.SpringMongoConfig;
 import edu.ru.cs512.model.PageCount;
 import edu.ru.cs512.service.PageCountService;
 
 @Service
-public class PageCountServiceImpl implements PageCountService {
-    
-    private MongoOperations getOpts() {
-        ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringMongoConfig.class);
-        MongoOperations opts = (MongoOperations) ctx.getBean("mongoTemplate");
-        return opts;
-    }
+public class PageCountServiceImpl extends BaseServiceImpl implements PageCountService {
     
     @Override
     public List<PageCount> findByTitle(String title) {
-        MongoOperations ops = getOpts();
         Query query = new Query(Criteria.where("pageTitle").is(title));
-        List<PageCount> pcList = ops.find(query, PageCount.class, "page_count");
-        return pcList;
+        List<PageCount> result = getOpts().find(query, PageCount.class, getCollection());
+        return result;
     }
+
+    @Override
+    public Map<String, List<PageCount>> findByTitles(String[] titles) {
+        Map<String, List<PageCount>> result = new HashMap<String, List<PageCount>>();
+        for(String title: titles) {
+            result.put(title, findByTitle(title));
+        }
+        return result;
+    }
+    
 }
