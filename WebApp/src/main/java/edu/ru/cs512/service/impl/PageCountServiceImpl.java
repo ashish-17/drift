@@ -29,5 +29,11 @@ public class PageCountServiceImpl extends BaseServiceImpl implements PageCountSe
         }
         return result;
     }
+
+    @Override
+    public List<String> listTitles() {
+        return getOpts().getCollection(getCollection()).distinct("pageTitle");
+    }
+    
     
 }

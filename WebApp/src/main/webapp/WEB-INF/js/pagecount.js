@@ -1,43 +1,75 @@
 $(function() {
 
-  var seriesOptions = [];
-  var seriesCounter = 0, names = [ '00 Agent', '007 Legends', '1 BC' ];
-  
-  function createChart() {
+  createChart([]);
+
+  function createChart(seriesOptions) {
     $('#chart').highcharts({
-      title: 'Test chart',
-      xAxis: {
-        title: 'Date',
-        type: 'category'
+      title : 'Test chart',
+      xAxis : {
+        title : 'Date',
+        type : 'category'
       },
-      yAxis: {
-        title: 'Count(#)',
-        plotLines: [{
-          value: 0,
-          width: 1,
-          color: '#808080'
-        }]
+      yAxis : {
+        title : 'Count(#)',
+        plotLines : [ {
+          value : 0,
+          width : 1,
+          color : '#808080'
+        } ]
       },
-      series: seriesOptions
+      series : seriesOptions
+    });
+  }
+  
+  function resetSeries(seriesOptions) {
+    var chart = $('#chart').highcharts();
+    while(chart.series.length > 0) {
+      chart.series[0].remove(true);
+    }
+    for(var i in seriesOptions) {
+      chart.addSeries(seriesOptions[i]);
+    }
+    chart.redraw();
+  }
+
+  function loadData(titles, callback) {
+    var url = path + '/pagecount/' + titles.join(',');
+    $.getJSON(url, function(result) {
+      var seriesOptions = [];
+      for ( var title in result) {
+        var data = [];
+        for ( var i in result[title]) {
+          data.push([ result[title][i]['date'], parseInt(result[title][i]['viewCount']) ]);
+        }
+        seriesOptions.push({
+          name : title,
+          data : data
+        });
+      }
+      callback(seriesOptions);
     });
   }
 
-  $.each(names, function(i, name) {
-    var url = path + '/pagecount/' + name;
-    $.getJSON(url, function(result) {
-      var data = [];
-      for (var j in result) {
-        data.push([result[j].date, parseInt(result[j].viewCount)]);
-      }
-      seriesOptions[i] = {
-        name: name,
-        data: data
-      };
-      seriesCounter += 1;
-      if (seriesCounter === names.length) {
-        createChart();
-      }
+  $.getJSON(path + '/pagecount/titles', function(result) {
+    var item = $('#select-search');
+    item.html();
+    for ( var i in result) {
+      item.append($('<option></option>').attr('value', result[i]).text(
+          result[i]));
+    }
+    item.chosen({
+      allow_single_deselect : true
     });
+  });
+
+  $('#btn-search').click(function() {
+    var titles = [];
+    $('li.search-choice span').each(function() {
+      titles.push($(this).text());
+    });
+    if(titles.length > 0) {
+      loadData(titles, resetSeries);
+    }
   });
 
 });

@@ -2,6 +2,9 @@
 
 <div class="jumbotron">
  <h2>Wikipedia Page Count Statistics</h2>
+ <select id="select-search" data-placeholder="Choose..." multiple style="width:100%;" tabindex="4">
+ </select>
+ <button id="btn-search" class="btn btn-default">Search</button>
 </div>
 
 <div class="row">
@@ -9,7 +12,7 @@
   <div class="panel panel-default">
    <div class="panel-heading">Page Count Statistics Charts</div>
    <div class="panel-body">
-    <div id="chart"></div>
+    <div id="chart" style="height:500px;"></div>
    </div>
   </div>
  </div>

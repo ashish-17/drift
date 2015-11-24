@@ -10,5 +10,7 @@ public interface PageCountService extends BaseService {
     public List<PageCount> findByTitle(String title);
     
     public Map<String, List<PageCount>> findByTitles(String[] titles);
+    
+    public List<String> listTitles();
 
 }

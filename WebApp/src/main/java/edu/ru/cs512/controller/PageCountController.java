@@ -24,16 +24,15 @@ public class PageCountController {
         return "pagecount";
     }
     
-    @RequestMapping(value="/{title}", method=RequestMethod.GET)
+    @RequestMapping(value="/{titles}", method=RequestMethod.GET)
     @ResponseBody
-    public Object findByTitle(@PathVariable String title) {
-        String[] titles = title.split(",");
-        if(titles.length == 1) {
-            return pcService.findByTitle(title);
-        }
-        else if(title.length() > 1){
-            return pcService.findByTitles(titles);
-        }
-        return "";
+    public Object findByTitle(@PathVariable String titles) {
+        return pcService.findByTitles(titles.split(","));
+    }
+    
+    @RequestMapping(value="/titles", method=RequestMethod.GET)
+    @ResponseBody
+    public List<String> listTitles() {
+        return pcService.listTitles();
     }
 }
