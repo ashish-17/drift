@@ -17,7 +17,7 @@ import edu.ru.cs512.service.PageCountService;
 public class PageCountController {
 
     @Autowired
-    PageCountService pcService;
+    private PageCountService pcService;
     
     @RequestMapping(value="", method=RequestMethod.GET)
     public String index() {

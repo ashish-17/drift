@@ -19,7 +19,12 @@ import edu.ru.cs512.service.PageCountService;
 @Service
 public class PageCountServiceImpl extends BaseServiceImpl implements PageCountService {
     
+    public String getCollection() {
+        return "page_counts";
+    }
+    
 	private static final int MIN_PREFIX_LENGTH = 3;
+
     @Override
     public PageCount findByTitle(String title) {
         Query query = new Query(Criteria.where("_id").is(title));

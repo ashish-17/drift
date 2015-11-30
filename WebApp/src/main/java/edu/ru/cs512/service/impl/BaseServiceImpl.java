@@ -9,8 +9,6 @@ import edu.ru.cs512.service.BaseService;
 
 public class BaseServiceImpl implements BaseService {
     
-    protected String collection = "page_counts";
-    
     @Override
     public MongoOperations getOpts() {
         ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringMongoConfig.class);
@@ -20,7 +18,7 @@ public class BaseServiceImpl implements BaseService {
 
     @Override
     public String getCollection() {
-        return collection;
+        return "";
     }
     
 }

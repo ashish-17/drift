@@ -23,3 +23,7 @@ footer{
   min-height:100%;
   position:relative;
 }
+.chart {
+  height: 500px;
+  min-height: 500px;	
+}

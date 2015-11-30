@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+  pageEncoding="utf-8"%>
 <%
     String path = String.format("%s://%s:%d%s", request.getScheme(), request.getServerName(),
-					request.getServerPort(), request.getContextPath());
+          request.getServerPort(), request.getContextPath());
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,19 +29,26 @@
 <script> var path = "<%=path%>"; </script>
 </head>
 <body>
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-			<div class="navbar-header">
-				<a class="navbar-brand">Hadoop-Driven Analysis</a>
-			</div>
-		<div class="container">
-			<div class="collapse navbar-collapse">
-				<ul class="nav navbar-nav">
-					<li>
-					<a href="/data"> 
-					<span class="glyphicon glyphicon-home" aria-hidden="true"></span> <span>&nbsp;Home</span>
-					</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-header">
+      <a class="navbar-brand">Hadoop-Driven Analysis</a>
+    </div>
+    <div class="container">
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="/pagecount"> 
+              <span class="glyphicon glyphicon-home" aria-hidden="true"></span> 
+              <span>&nbsp;PageCount</span>
+            </a>
+          </li>
+          <li>
+            <a href="/pagerank"> 
+              <span class="glyphicon glyphicon-signal" aria-hidden="true"></span> 
+              <span>&nbsp;PageRank</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>

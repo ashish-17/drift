@@ -1,0 +1,32 @@
+package edu.ru.cs512.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import edu.ru.cs512.model.PageRank;
+import edu.ru.cs512.service.PageRankService;
+
+@Controller
+@RequestMapping("/pagerank")
+public class PageRankController {
+    
+    @Autowired
+    private PageRankService prService;
+    
+    @RequestMapping(value="", method=RequestMethod.GET)
+    public String index() {
+        return "pagerank";
+    }
+    
+    @RequestMapping(value="/top/{k}", method=RequestMethod.GET)
+    @ResponseBody
+    public List<PageRank> findTopK(@PathVariable int k) {
+        return prService.findTopK(k);
+    }
+}
