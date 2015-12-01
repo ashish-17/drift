@@ -2,12 +2,14 @@
 
 <div class="jumbotron">
   <div class="container">
-    <h3>Wikipedia Page Count Statistics</h3>
-    <input id="search-input" list="search-items" placeholder="Search..." />
-    <datalist id="search-items"></datalist>
-    <button id="btn-search" class="btn btn-default">Search</button>
+    <h2>Wikipedia Page Count Statistics</h2>
+    <select id="select-search" class="search" multiple="multiple" style="width:500px;"></select>
+    <div class="btn-group">
+      <button id="btn-search" type="button" class="btn btn-primary btn-item">Search</button>
+    </div>
   </div>
 </div>
+
 <div class="container">
   <div class="row">
     <div class="col-md-9">

@@ -1,10 +1,13 @@
 $(function() {
 
-  createChart([]);
-
-  function createChart(seriesOptions) {
-    $('#chart').highcharts({
-      title : 'Wikipedia Page Count Statistics',
+  var options = {
+    chart: {
+      type: 'column',
+      renderTo: 'chart'
+    },
+    title: {
+      text: 'Wikipedia Page Count Statistics'
+    },
       xAxis : {
         title : 'Date',
         type : 'category'
@@ -17,23 +20,46 @@ $(function() {
           color : '#808080'
         } ]
       },
-      series : seriesOptions
+    plotOptions: {
+      marker: {
+        radius: 0
+      }
+    },
+    series: []
+  };
+
+  var chart = new Highcharts.Chart(options);
+
+  $('#select-search').select2({
+    ajax: {
+      url: '/pagecount/titles/search',
+      dataType: 'json',
+      delay: 200,
+      data: function(params) {
+        return {
+          prefix: params.term
+        };
+      },
+      processResults: function(data, params) {
+        return {
+          results: data
+        }
+      },
+      cache: true
+    },
+    minimumInputLength: 0
+  });
+  
+  $('#btn-search').click(function() {
+    var titles = [];
+    $('li.select2-selection__choice').each(function() {
+      titles.push($(this).attr('title'));
     });
-  }
-
-  function resetSeries(seriesOptions) {
-    var chart = $('#chart').highcharts();
-    while (chart.series.length > 0) {
-      chart.series[0].remove(true);
-    }
-    for ( var i in seriesOptions) {
-      chart.addSeries(seriesOptions[i]);
-    }
-    chart.redraw();
-  }
-
-  function loadData(titles, callback) {
-    var url = '/pagecount/' + titles.join(',');
+    reset(titles.join(','));
+  });
+  
+  function reset(titles, type) {
+    var url = '/pagecount/' + titles;
     $.getJSON(url, function(result) {
       var seriesOptions = [];
       for ( var title in result) {
@@ -47,41 +73,10 @@ $(function() {
           data : data
         });
       }
-      callback(seriesOptions);
+      options.series = seriesOptions;
+      options.chart.type = type || 'spline';
+      chart = new Highcharts.Chart(options);
     });
-  }
-
-  $('#btn-search').click(function() {
-    var searchInput = $('#search-input');
-    var titles = [];
-    titles.push(searchInput.val());
-    if (titles.length > 0) {
-      loadData(titles, resetSeries);
-    }
-
-    /*
-     * var titles = []; $('li.search-choice span').each(function() {
-     * titles.push($(this).text()); }); if(titles.length > 0) { loadData(titles,
-     * resetSeries); }
-     */
-  });
-
-  function refreshList() {
-    var searchInput = $('#search-input');
-    var prefix = searchInput.val();
-    if (prefix.length > 2) {
-      $.getJSON(path + '/pagecount/titles/' + prefix, function(result) {
-        var searchItems = $('#search-items');
-        searchItems.empty();
-        for ( var i in result) {
-          searchItems.append($('<option></option>').attr('value', result[i])
-              .text(result[i]));
-        }
-        searchItems.chosen({
-          allow_single_deselect : true
-        });
-      });
-    }
   }
 
 });
