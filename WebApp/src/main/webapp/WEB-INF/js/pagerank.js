@@ -1,47 +1,104 @@
 $(function() {
   
-  loadData(10, createChart);
-  
-  function createChart(seriesOptions) {
-    $('#chart').highcharts({
-      chart: {
-        type: 'column'
-      },
+  var options = {
+    chart: {
+      type: 'column',
+      renderTo: 'chart'
+    },
+    title: {
+      text: 'Wikipedia PageRank Statistics'
+    },
+    subtitle: {
+      text: 'Source: <a href="https://dumps.wikipedia.org/enwiki/latest">Wikipedia Dumps</a>'
+    },
+    xAxis: {
+      type: 'category',
+      labels: {
+        rotation: -45
+      }
+    },
+    yAxis: {
+      min: 0,
       title: {
-        text: 'Wikipedia PageRank Statistics'
+        text: 'PageRank Index'
+      }
+    },
+    plotOptions: {
+      marker: {
+        radius: 0
+      }
+    },
+    series: []
+  };
+  
+  var chart = new Highcharts.Chart(options);
+
+  var types = {
+    country: {
+      titles: [ 'China', 'India', 'Indonesia', 'Brazil',
+      'Pakistan', 'Nigeria', 'Bangladesh', 'Russia', 'Japan', 'Mexico',
+      'Philippines', 'Ethiopia', 'Vietnam', 'Egypt', 'Turkey', 'Germany',
+      'Iran', 'Thailand'],
+      type: 'spline'
+    },
+    state: {
+      titles: ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
+    'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii',
+    'Idaho', 'Illinois Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana',
+    'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota',
+    'Mississippi', 'Missouri', 'Montana Nebraska', 'Nevada', 'New Hampshire',
+    'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota',
+    'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania Rhode Island', 'South Carolina', 
+    'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont',
+    'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'],
+      type: 'area'
+    },
+    year: {
+      titles: function(begin, end) {
+        var titles = [];
+        for(var i=begin;i<=end;i++) titles.push(i);
+        return titles;
+      }(1950, 2016),
+      type: 'areaspline'
+    }
+  };
+
+  $('#select-search').select2({
+    ajax: {
+      url: '/pagerank/titles/search',
+      dataType: 'json',
+      delay: 200,
+      data: function(params) {
+        return {
+          prefix: params.term
+        };
       },
-      subtitle: {
-        text: 'Source: <a href="https://dumps.wikipedia.org/enwiki/latest">Wikipedia Dumps</a>'
-      },
-      xAxis: {
-        type: 'category',
-        labels: {
-          rotation: -45
+      processResults: function(data, params) {
+        return {
+          results: data
         }
       },
-      yAxis: {
-        min: 0,
-        title: {
-          text: 'PageRank Index'
-        }
-      },
-      series: seriesOptions
+      cache: true
+    },
+    minimumInputLength: 0
+  });
+  
+  $('.btn-search-default').click(function() {
+    var type = $(this).attr('title');
+    type = types[type];
+    reset(type.titles, type.type);
+  });
+  
+  $('#btn-search').click(function() {
+    var titles = [];
+    $('li.select2-selection__choice').each(function() {
+      titles.push($(this).attr('title'));
     });
-  }
+    reset(titles.join(','));
+  });
   
-  function resetSeries(seriesOptions) {
-    var chart = $('#chart').highcharts();
-    while(chart.series.length > 0) {
-      chart.series[0].remove(true);
-    }
-    for(var i in seriesOptions) {
-      chart.addSeries(seriesOptions[i]);
-    }
-    chart.redraw();
-  }
-  
-  function loadData(top, callback) {
-    var url = path + '/pagerank/top/' + top;
+  function reset(titles, type) {
+    var url = '/pagerank/' + titles;
     $.getJSON(url, function(result) {
       var seriesOptions = [];
       var data = [];
@@ -52,8 +109,9 @@ $(function() {
         name : 'Wikipedia Titles',
         data : data
       });
-      console.log(data);
-      callback(seriesOptions);
+      options.series = seriesOptions;
+      options.chart.type = type || 'column';
+      chart = new Highcharts.Chart(options);
     });
   }
   

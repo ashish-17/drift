@@ -13,8 +13,11 @@
 <base href="<%=path%>">
 <title>Hadoop-Driven Data Analysis System</title>
 <link href="/css/bootstrap.min.css" rel="stylesheet">
+<!-- 
 <link href="/css/chosen.min.css" rel="stylesheet">
 <link href="/css/prism.css" rel="stylesheet">
+-->
+<link href="/css/select2.min.css" rel="stylesheet">
 <link href="/css/style.css" rel="stylesheet">
 <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -22,11 +25,13 @@
 <![endif]-->
 <script src="/js/lib/jquery.min.js"></script>
 <script src="/js/lib/bootstrap.min.js"></script>
-<script src="/js/lib/d3.min.js"></script>
 <script src="/js/lib/highcharts-custom.js"></script>
+<!--
+<script src="/js/lib/d3.min.js"></script>
 <script src="/js/lib/chosen.jquery.min.js"></script>
 <script src="/js/lib/prism.js"></script>
-<script> var path = "<%=path%>"; </script>
+-->
+<script src="/js/lib/select2.full.min.js"></script>
 </head>
 <body>
   <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -37,18 +42,18 @@
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li>
-            <a href="/pagecount"> 
+            <a href="/pagecount/"> 
               <span class="glyphicon glyphicon-home" aria-hidden="true"></span> 
               <span>&nbsp;PageCount</span>
             </a>
           </li>
           <li>
-            <a href="/pagerank"> 
+            <a href="/pagerank/"> 
               <span class="glyphicon glyphicon-signal" aria-hidden="true"></span> 
               <span>&nbsp;PageRank</span>
             </a>
           </li>
         </ul>
       </div>
-    </div>
+    </div><!-- /.container -->
   </nav>

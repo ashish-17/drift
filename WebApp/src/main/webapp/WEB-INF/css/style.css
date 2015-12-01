@@ -18,6 +18,9 @@ footer{
   text-align:center;
   border-top:1px solid grey;
 }
+.jumbotron{
+  padding-top: 30px;
+}
 .container {
   width: 1024px; 
   min-height:100%;
@@ -26,4 +29,13 @@ footer{
 .chart {
   height: 500px;
   min-height: 500px;	
+}
+h2 {
+  margin-bottom: 30px;
+}
+.search {
+  width: 430px;	
+}
+.btn-item{
+  width: 100px;	
 }

@@ -8,10 +8,9 @@ import org.springframework.data.mongodb.core.mapping.Field;
 public class PageRank {
 
     @Id
-    @Field("title")
     private String pageTitle;
 
-    @Field("pagerank")
+    @Field("pageRank")
     private String pageRank;
 
     public String getPageTitle() {

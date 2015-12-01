@@ -3,7 +3,7 @@
 <div class="jumbotron">
   <div class="container">
     <h3>Wikipedia Page Count Statistics</h3>
-    <input id="search-input" list="search-items" placeholder="Search..." onkeydown="refreshList()"/>
+    <input id="search-input" list="search-items" placeholder="Search..." />
     <datalist id="search-items"></datalist>
     <button id="btn-search" class="btn btn-default">Search</button>
   </div>

@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import edu.ru.cs512.model.PageCount;
 import edu.ru.cs512.service.PageCountService;
 
 @Controller
@@ -19,7 +18,7 @@ public class PageCountController {
     @Autowired
     private PageCountService pcService;
     
-    @RequestMapping(value="", method=RequestMethod.GET)
+    @RequestMapping(value="/", method=RequestMethod.GET)
     public String index() {
         return "pagecount";
     }

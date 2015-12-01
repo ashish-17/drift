@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
 
+import edu.ru.cs512.config.SpringMongoConfig;
 import edu.ru.cs512.model.PageCount;
 import edu.ru.cs512.service.PageCountService;
 
@@ -20,7 +21,7 @@ import edu.ru.cs512.service.PageCountService;
 public class PageCountServiceImpl extends BaseServiceImpl implements PageCountService {
     
     public String getCollection() {
-        return "page_counts";
+        return SpringMongoConfig.PAGE_VIEW;
     }
     
 	private static final int MIN_PREFIX_LENGTH = 3;
@@ -51,7 +52,7 @@ public class PageCountServiceImpl extends BaseServiceImpl implements PageCountSe
     	List<String> titles = new ArrayList<>();
     	
     	if (prefix.length() >= MIN_PREFIX_LENGTH) {
-    		Pattern p = Pattern.compile("^"+prefix+".", java.util.regex.Pattern.CASE_INSENSITIVE);
+    		Pattern p = Pattern.compile("^"+prefix+"."/*, java.util.regex.Pattern.CASE_INSENSITIVE*/);
         	BasicDBObject query = new BasicDBObject("_id", p);
 
         	List<DBObject> result = getOpts().getCollection(getCollection()).find(query).limit(10).toArray();

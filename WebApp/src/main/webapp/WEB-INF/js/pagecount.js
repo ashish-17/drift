@@ -33,7 +33,7 @@ $(function() {
   }
 
   function loadData(titles, callback) {
-    var url = path + '/pagecount/' + titles.join(',');
+    var url = '/pagecount/' + titles.join(',');
     $.getJSON(url, function(result) {
       var seriesOptions = [];
       for ( var title in result) {
