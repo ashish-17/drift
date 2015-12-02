@@ -29,14 +29,17 @@ public class PageCountController {
     @RequestMapping(value="/{titles}", method=RequestMethod.GET)
     @ResponseBody
     public Object findByTitle(@PathVariable String titles) {
-        return pcService.findByTitles(titles.split(","));
+        return pcService.findByTitles(titles.split(",,"));
     }
     
     @RequestMapping(value="/titles/search", method=RequestMethod.GET)
     @ResponseBody
-    public List<PageTitle> findTitles(@RequestParam String prefix) {
-        List<String> temp = pcService.findTitles(prefix);
+    public List<PageTitle> findTitles(@RequestParam(required=false) String prefix) {
         List<PageTitle> result = new ArrayList<PageTitle>();
+        if(prefix == null || prefix.isEmpty()) {
+            return result;
+        }
+        List<String> temp = pcService.findTitles(prefix);
         if (!result.isEmpty()) {
             for (String t : temp) {
                 result.add(new PageTitle(t));

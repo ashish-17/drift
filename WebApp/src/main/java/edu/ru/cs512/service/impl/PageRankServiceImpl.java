@@ -29,7 +29,12 @@ public class PageRankServiceImpl extends BaseServiceImpl implements PageRankServ
 
     @Override
     public List<String> findTitles(String prefix) {
-        Pattern pattern = Pattern.compile("^" + prefix + ".");
+        String match = ".";
+        if(prefix.endsWith(";")) {
+            prefix = prefix.substring(0, prefix.length()-1);
+            match = "$";
+        }
+        Pattern pattern = Pattern.compile("^" + prefix + match);
         Query query = new Query(Criteria.where("_id").regex(pattern));
         query.limit(20);
         List<PageRank> temp = getOpts().find(query, PageRank.class, getCollection());

@@ -80,13 +80,14 @@ $(function() {
       },
       cache: true
     },
+    escapeMarkup: function(markup) {return markup},
     minimumInputLength: 0
   });
   
   $('.btn-search-default').click(function() {
     var type = $(this).attr('title');
     type = types[type];
-    reset(type.titles, type.type);
+    reset(type.titles.join(',,'), type.type);
   });
   
   $('#btn-search').click(function() {
@@ -94,7 +95,7 @@ $(function() {
     $('li.select2-selection__choice').each(function() {
       titles.push($(this).attr('title'));
     });
-    reset(titles.join(','));
+    reset(titles.join(',,'));
   });
   
   function reset(titles, type) {

@@ -30,14 +30,17 @@ public class PageRankController {
     @RequestMapping(value = "/{titles}", method = RequestMethod.GET)
     @ResponseBody
     public List<PageRank> findByTitles(@PathVariable String titles) {
-        return prService.findByTitles(titles.split(","));
+        return prService.findByTitles(titles.split(",,"));
     }
 
     @RequestMapping(value = "/titles/search", method = RequestMethod.GET)
     @ResponseBody
-    public List<PageTitle> searchTitles(@RequestParam String prefix) {
-        List<String> temp = prService.findTitles(prefix);
+    public List<PageTitle> searchTitles(@RequestParam(required=false) String prefix) {
         List<PageTitle> result = new ArrayList<PageTitle>();
+        if(prefix == null || prefix.isEmpty()) {
+            return result;
+        }
+        List<String> temp = prService.findTitles(prefix);
         if (!result.isEmpty()) {
             for (String t : temp) {
                 result.add(new PageTitle(t));

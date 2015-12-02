@@ -47,6 +47,7 @@ $(function() {
       },
       cache: true
     },
+    escapeMarkup: function(markup) {return markup},
     minimumInputLength: 0
   });
   
@@ -55,7 +56,7 @@ $(function() {
     $('li.select2-selection__choice').each(function() {
       titles.push($(this).attr('title'));
     });
-    reset(titles.join(','));
+    reset(titles.join(',,'));
   });
   
   function reset(titles, type) {
