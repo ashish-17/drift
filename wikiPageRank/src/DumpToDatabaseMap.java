@@ -14,11 +14,9 @@ public class DumpToDatabaseMap extends Mapper<LongWritable, Text, Text, DoubleWr
 		Double pageRank = Double.parseDouble(linkInfo[1].trim());
 		try {
 			page = URLDecoder.decode(page, "UTF-8");
-			if (page.matches("^[a-zA-Z0-9 _-]*$")) {
-				page = page.replace("_", " ").trim();
-				if (page.length() >0) {
-					context.write(new Text(page), new DoubleWritable(pageRank));
-				}
+			page = page.replace("_", " ").trim();
+			if (page.length() >0) {
+				context.write(new Text(page), new DoubleWritable(pageRank));
 			}
 		} catch (Exception e) {
 			// Nothing!!

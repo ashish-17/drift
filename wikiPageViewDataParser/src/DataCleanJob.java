@@ -2,12 +2,13 @@ import java.io.IOException;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 
 import com.mongodb.hadoop.MongoConfig;
 import com.mongodb.hadoop.MongoOutputFormat;
-import com.mongodb.hadoop.io.BSONWritable;
+import com.mongodb.hadoop.io.MongoUpdateWritable;
 import com.mongodb.hadoop.util.MongoTool;
 
 /**
@@ -21,18 +22,20 @@ public class DataCleanJob  extends MongoTool {
 		Configuration conf = new Configuration();
 		Job job;
 		try {
-			conf.set("mongo.output.uri", "mongodb://localhost:27017/mongo_hadoop.wiki");
+			conf.set("mongo.output.uri", "mongodb://52.34.106.174:27017/mongo_hadoop.page_views");
 			job = Job.getInstance(conf, "dataclean");
 
 			job.setJarByClass(DataCleanJob.class);
 			job.setMapperClass(DataCleanMapper.class);
+			//job.setCombinerClass(DataCleanCombiner.class);
 			job.setReducerClass(DataCleanReducer.class);
 			
 			job.setMapOutputKeyClass(PageDataKey.class);
 			job.setMapOutputValueClass(PageDataValue.class);
-			job.setOutputKeyClass(BSONWritable.class);
-			job.setOutputValueClass(BSONWritable.class);
+			job.setOutputKeyClass(NullWritable.class);
+			job.setOutputValueClass(MongoUpdateWritable.class);
 
+			FileInputFormat.setInputDirRecursive(job, true);
 			FileInputFormat.addInputPath(job, new Path(args[0]));
 			
 			MongoConfig mongoConfig = new MongoConfig(conf);

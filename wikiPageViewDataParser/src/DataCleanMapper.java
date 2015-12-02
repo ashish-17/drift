@@ -27,14 +27,16 @@ public class DataCleanMapper extends Mapper<LongWritable, Text, PageDataKey, Pag
 						try {
 							pageDataKey.pageTitle = URLDecoder.decode(colmTokenizer.nextToken(), "UTF-8");
 							if (pageDataKey.pageTitle.matches("^[a-zA-Z0-9 _-]*$")) {
-								pageDataKey.pageTitle = pageDataKey.pageTitle.replace("_", " ");
-								pageDataValue.countViews = Integer.parseInt(colmTokenizer.nextToken());
-								String totalResponseSize = colmTokenizer.nextToken();
+								pageDataKey.pageTitle = pageDataKey.pageTitle.replace("_", " ").trim();
+								if (pageDataKey.pageTitle .length() >0) {
+									pageDataValue.countViews = Integer.parseInt(colmTokenizer.nextToken());
+									String totalResponseSize = colmTokenizer.nextToken();
 
-								pageDataKey.date = fileNameSplits[1];
-								pageDataValue.nthHour = Integer.parseInt(fileNameSplits[2].substring(0,  5));
-								
-								context.write(pageDataKey, pageDataValue);
+									pageDataKey.date = fileNameSplits[1];
+									pageDataValue.nthHour = Integer.parseInt(fileNameSplits[2].substring(0,  5));
+									
+									context.write(pageDataKey, pageDataValue);
+								}
 							}
 						} catch (IllegalArgumentException e) {
 							// Nothing
