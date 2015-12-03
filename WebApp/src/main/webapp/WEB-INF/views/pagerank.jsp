@@ -7,10 +7,16 @@
       <button title="country" type="button" class="btn btn-default btn-item btn-search-default">Country</button>
       <button title="state" type="button" class="btn btn-default btn-item btn-search-default">US State</button>
       <button title="year" type="button" class="btn btn-default btn-item btn-search-default">Year</button>
+      <button title="major" type="button" class="btn btn-default btn-item btn-search-default">Major</button>
+      <button title="cs" type="button" class="btn btn-default btn-item btn-search-default">CS</button>
+      <button title="company" type="button" class="btn btn-default btn-item btn-search-default">Company</button>
     </div>
+    <div style="clear:both;margin-top:5px;">
     <select id="select-search" class="search" multiple="multiple"></select>
     <div class="btn-group">
       <button id="btn-search" type="button" class="btn btn-primary btn-item">Search</button>
+    </div>
+    <p style="font-size:14px;">Add ";" to the end of keyword for accurate search!</p>
     </div>
   </div>
 </div>
