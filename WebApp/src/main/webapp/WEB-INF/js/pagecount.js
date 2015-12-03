@@ -6,7 +6,7 @@ $(function() {
       renderTo : 'chart1'
     },
     title : {
-      text : 'Wikipedia Page Count Statistics'
+      text : 'Wikipedia Page View Statistics'
     },
     xAxis : {
       title : 'Date',
