@@ -6,6 +6,4 @@ public interface BaseService {
 
     public MongoOperations getOpts();
     
-    public String getCollection();
-
 }

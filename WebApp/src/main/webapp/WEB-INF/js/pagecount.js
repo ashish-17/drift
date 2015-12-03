@@ -1,56 +1,106 @@
 $(function() {
 
-  var options = {
-    chart: {
-      type: 'column',
-      renderTo: 'chart'
+  var options1 = {
+    chart : {
+      type : 'column',
+      renderTo : 'chart1'
     },
-    title: {
-      text: 'Wikipedia Page Count Statistics'
+    title : {
+      text : 'Wikipedia Page Count Statistics'
     },
-      xAxis : {
-        title : 'Date',
-        type : 'category'
-      },
-      yAxis : {
-        title : 'Count(#)',
-        plotLines : [ {
-          value : 0,
-          width : 1,
-          color : '#808080'
-        } ]
-      },
-    plotOptions: {
-      marker: {
-        radius: 0
+    xAxis : {
+      title : 'Date',
+      type : 'category'
+    },
+    yAxis : {
+      title : 'Count(#)',
+      plotLines : [ {
+        value : 0,
+        width : 1,
+        color : '#808080'
+      } ]
+    },
+    plotOptions : {
+      marker : {
+        radius : 0
       }
     },
-    series: []
+    series : []
   };
 
-  var chart = new Highcharts.Chart(options);
-
-  $('#select-search').select2({
-    ajax: {
-      url: '/pagecount/titles/search',
-      dataType: 'json',
-      delay: 200,
-      data: function(params) {
-        return {
-          prefix: params.term
-        };
-      },
-      processResults: function(data, params) {
-        return {
-          results: data
+  var options2 = {
+    chart : {
+      renderTo : 'chart2',
+      zoomType : 'xy'
+    },
+    title : {
+      text : ''
+    },
+    xAxis : [ {
+      categories : [],
+      crosshair : true
+    } ],
+    yAxis : [ { // Primary yAxis
+      labels : {
+        format : '{value}',
+        style : {
+          color : Highcharts.getOptions().colors[2]
         }
       },
-      cache: true
+      title : {
+        text : 'Page Count',
+        style : {
+          color : Highcharts.getOptions().colors[2]
+        }
+      }
+    }, { // Secondary yAxis
+      labels : {
+        format : '{value}',
+        style : {
+          color : Highcharts.getOptions().colors[0]
+        }
+      },
+      title : {
+        text : 'Page Trend',
+        style : {
+          color : Highcharts.getOptions().colors[0]
+        }
+      },
+      opposite : true
+    } ],
+    tooltip : {
+      shared : true
     },
-    escapeMarkup: function(markup) {return markup},
-    minimumInputLength: 0
+    series : []
+  };
+
+  var chart1 = new Highcharts.Chart(options1);
+  var chart2 = new Highcharts.Chart(options2);
+  var chartdata = {};
+
+  $('#select-search').select2({
+    ajax : {
+      url : '/pagecount/titles/search',
+      dataType : 'json',
+      delay : 200,
+      data : function(params) {
+        return {
+          prefix : params.term
+        };
+      },
+      processResults : function(data, params) {
+        return {
+          results : data
+        }
+      },
+      cache : true
+    },
+    escapeMarkup : function(markup) {
+      return markup
+    },
+    minimumInputLength : 0
   });
-  
+
   $('#btn-search').click(function() {
     var titles = [];
     $('li.select2-selection__choice').each(function() {
@@ -58,25 +108,60 @@ $(function() {
     });
     reset(titles.join(',,'));
   });
-  
+
+  $('#select-title').change(function() {
+    var title = $(this).val();
+    if (title == '--SELECT--') {
+      return;
+    }
+    options2.title.text = 'Page Trend for "' + title + '"';
+    options2.xAxis[0].categories = chartdata[title]['date'];
+    options2.series = [ {
+      name : 'Page Count',
+      type : 'spline',
+      data : chartdata[title]['viewCount'],
+
+    }, {
+      name : 'Page Trend',
+      type : 'column',
+      yAxis : 1,
+      data : chartdata[title]['trend'],
+    } ];
+    console.log(JSON.stringify(options2));
+    chart2 = new Highcharts.Chart(options2);
+  });
+
   function reset(titles, type) {
-    var url = '/pagecount/' + titles;
+    var url = '/pagecount/trends/' + titles;
     $.getJSON(url, function(result) {
       var seriesOptions = [];
+      chartdata = {};
+      var select = $('#select-title').html('<option>--SELECT--</option>');
       for ( var title in result) {
-        var data = [];
+        select.append('<option>' + title + '</option>');
+        chartdata[title] = {
+          'date' : [],
+          'viewCount' : [],
+          'trend' : []
+        };
+        var seriesdata = [];
         for ( var i in result[title]['pageData']) {
-          data.push([ result[title]['pageData'][i]['date'],
-              parseInt(result[title]['pageData'][i]['viewCount']) ]);
+          var date = result[title]['pageData'][i]['date'];
+          var viewCount = parseInt(result[title]['pageData'][i]['viewCount']);
+          var trend = parseFloat(result[title]['pageData'][i]['trend']);
+          chartdata[title]['date'].push(date);
+          chartdata[title]['viewCount'].push(viewCount);
+          chartdata[title]['trend'].push(trend);
+          seriesdata.push([ date, viewCount ]);
         }
         seriesOptions.push({
           name : title,
-          data : data
+          data : seriesdata
         });
       }
-      options.series = seriesOptions;
-      options.chart.type = type || 'spline';
-      chart = new Highcharts.Chart(options);
+      options1.series = seriesOptions;
+      options1.chart.type = type || 'spline';
+      chart1 = new Highcharts.Chart(options1);
     });
   }
 

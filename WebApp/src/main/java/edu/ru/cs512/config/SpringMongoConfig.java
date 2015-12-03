@@ -14,8 +14,6 @@ public class SpringMongoConfig {
 
     public final static String DB = "mongo_hadoop";
     public final static String URI = "mongodb://52.34.106.174:27017";
-    public final static String PAGE_VIEW = "page_views";
-    public final static String PAGE_RANK = "page_rank";
 
     @Bean
     public MongoDbFactory mongoDbFactory() throws Exception {

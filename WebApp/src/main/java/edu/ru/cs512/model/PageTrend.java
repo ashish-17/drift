@@ -8,8 +8,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-@Document(collection = "page_views")
-public class PageCount {
+@Document(collection = "page_trends")
+public class PageTrend {
 
     @Id
     private String pageTitle;
@@ -24,6 +24,9 @@ public class PageCount {
 
         @Field("viewCount")
         private String viewCount;
+
+        @Field("trend")
+        private String trend;
 
         public String getDate() {
             return date;
@@ -41,6 +44,13 @@ public class PageCount {
             this.viewCount = viewCount;
         }
 
+        public String getTrend() {
+            return trend;
+        }
+
+        public void setTrend(String trend) {
+            this.trend = trend;
+        }
     }
 
     public String getPageTitle() {

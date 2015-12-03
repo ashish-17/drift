@@ -25,11 +25,17 @@ public class PageCountController {
     public String index() {
         return "pagecount";
     }
-    
+
     @RequestMapping(value="/{titles}", method=RequestMethod.GET)
     @ResponseBody
     public Object findByTitle(@PathVariable String titles) {
         return pcService.findByTitles(titles.split(",,"));
+    }
+    
+    @RequestMapping(value="/trends/{titles}", method=RequestMethod.GET)
+    @ResponseBody
+    public Object findTrendsByTitle(@PathVariable String titles) {
+        return pcService.findTrendsByTitles(titles.split(",,"));
     }
     
     @RequestMapping(value="/titles/search", method=RequestMethod.GET)

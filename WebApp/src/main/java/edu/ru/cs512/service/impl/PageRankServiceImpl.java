@@ -8,22 +8,16 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
-import edu.ru.cs512.config.SpringMongoConfig;
 import edu.ru.cs512.model.PageRank;
 import edu.ru.cs512.service.PageRankService;
 
 @Service
 public class PageRankServiceImpl extends BaseServiceImpl implements PageRankService {
-
-    @Override
-    public String getCollection() {
-        return SpringMongoConfig.PAGE_RANK;
-    }
-
+    
     @Override
     public List<PageRank> findByTitles(String[] titles) {
         Query query = new Query(Criteria.where("_id").in(titles));
-        List<PageRank> result = getOpts().find(query, PageRank.class, getCollection());
+        List<PageRank> result = getOpts().find(query, PageRank.class);
         return result;
     }
 
@@ -37,7 +31,7 @@ public class PageRankServiceImpl extends BaseServiceImpl implements PageRankServ
         Pattern pattern = Pattern.compile("^" + prefix + match);
         Query query = new Query(Criteria.where("_id").regex(pattern));
         query.limit(20);
-        List<PageRank> temp = getOpts().find(query, PageRank.class, getCollection());
+        List<PageRank> temp = getOpts().find(query, PageRank.class);
         List<String> result = new ArrayList<String>();
         for (PageRank pr : temp) {
             result.add(pr.getPageTitle());

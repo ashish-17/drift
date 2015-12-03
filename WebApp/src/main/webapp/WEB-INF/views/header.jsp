@@ -25,8 +25,9 @@
 <![endif]-->
 <script src="/js/lib/jquery.min.js"></script>
 <script src="/js/lib/bootstrap.min.js"></script>
-<script src="/js/lib/highcharts-custom.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
 <!--
+<script src="/js/lib/highcharts-custom.js"></script>
 <script src="/js/lib/d3.min.js"></script>
 <script src="/js/lib/chosen.jquery.min.js"></script>
 <script src="/js/lib/prism.js"></script>

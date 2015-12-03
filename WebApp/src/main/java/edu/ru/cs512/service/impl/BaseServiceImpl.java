@@ -15,10 +15,5 @@ public class BaseServiceImpl implements BaseService {
         MongoOperations opts = (MongoOperations) ctx.getBean("mongoTemplate");
         return opts;
     }
-
-    @Override
-    public String getCollection() {
-        return "";
-    }
     
 }
