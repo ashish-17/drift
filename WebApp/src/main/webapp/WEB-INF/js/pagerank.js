@@ -57,7 +57,7 @@ $(function() {
           'Pennsylvania Rhode Island', 'South Carolina', 'South Dakota',
           'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington',
           'West Virginia', 'Wisconsin', 'Wyoming' ],
-      type : 'area'
+      type : 'areaspline'
     },
     year : {
       titles : function(begin, end) {
