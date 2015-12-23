@@ -15,18 +15,18 @@ import org.apache.hadoop.io.WritableUtils;
  */
 class PageDataValue implements WritableComparable<PageDataValue> {
 
-	public int nthHour;
+	public String date;
 	public int countViews;
 
 	@Override
 	public void write(DataOutput out) throws IOException {
-		WritableUtils.writeVInt(out, nthHour);
+		WritableUtils.writeString(out, date);
 		WritableUtils.writeVInt(out, countViews);
 	}
 
 	@Override
 	public void readFields(DataInput in) throws IOException {
-		this.nthHour = WritableUtils.readVInt(in);
+		this.date = WritableUtils.readString(in);
 		this.countViews = WritableUtils.readVInt(in);
 	}
 
@@ -34,8 +34,8 @@ class PageDataValue implements WritableComparable<PageDataValue> {
 	public int compareTo(PageDataValue o) {
 		if (o == null) {
 			return 0;
-		} else if (nthHour != o.nthHour) {
-			return (nthHour - o.nthHour);
+		} else if (this.date.compareTo(o.date) != 0) {
+			return this.date.compareTo(o.date);
 		} else if (countViews != o.countViews) {
 			return (countViews - o.countViews);
 		}
@@ -50,7 +50,7 @@ class PageDataValue implements WritableComparable<PageDataValue> {
 	 */
 	@Override
 	public String toString() {
-		return nthHour + "-" + countViews;
+		return date + "-" + countViews;
 	}
 }
 

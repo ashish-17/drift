@@ -36,5 +36,4 @@ public class RankCalcMap extends Mapper<LongWritable, Text, Text, Text> {
 		//Write the original line with some identifier.
 		context.write(new Text(from), new Text(":" + to));
 	}
-
 }

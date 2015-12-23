@@ -29,6 +29,7 @@
     <mvc:resources mapping="/js/**" location="/WEB-INF/js/" cache-period="31556926"/>
     <mvc:resources mapping="/images/**" location="/WEB-INF/images/" cache-period="31556926"/>
     <mvc:resources mapping="/fonts/**" location="/WEB-INF/fonts/" cache-period="31556926"/> 
+    <mvc:resources mapping="/data/**" location="/WEB-INF/data/" cache-period="31556926"/> 
     
     <!-- Default view page -->
     <mvc:view-controller path="/" view-name="pagecount" />

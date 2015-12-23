@@ -120,7 +120,7 @@ $(function() {
 
   $('#select-search').select2({
     ajax : {
-      url : '/pagerank/titles/search',
+      url : 'pagerank/titles/search',
       dataType : 'json',
       delay : 200,
       data : function(params) {
@@ -154,7 +154,7 @@ $('#btn-search').click(function() { var titles = [];
   });
 
   function reset(titles, type) {
-    var url = '/pagerank/' + titles;
+    var url = 'pagerank/' + titles;
     $.getJSON(url,
         function(result) {
           var seriesOptions = [];

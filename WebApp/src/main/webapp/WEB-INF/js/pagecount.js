@@ -80,7 +80,7 @@ $(function() {
 
   $('#select-search').select2({
     ajax : {
-      url : '/pagecount/titles/search',
+      url : 'pagecount/titles/search',
       dataType : 'json',
       delay : 200,
       data : function(params) {
@@ -132,7 +132,7 @@ $(function() {
   });
 
   function reset(titles, type) {
-    var url = '/pagecount/trends/' + titles;
+    var url = 'pagecount/trends/' + titles;
     $.getJSON(url, function(result) {
       var seriesOptions = [];
       chartdata = {};

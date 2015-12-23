@@ -33,6 +33,6 @@
     </div>
   </div>
 </div><!-- /.container -->
-<script src="/js/pagerank.js"></script>
+<script src="js/pagerank.js"></script>
 
 <jsp:include page="footer.jsp" flush="true" />

@@ -39,7 +39,6 @@ dependencies {
         'com.fasterxml.jackson.core:jackson-core:2.4.3',
         'com.fasterxml.jackson.core:jackson-databind:2.4.3',
         'com.fasterxml.jackson.core:jackson-annotations:2.4.3',
-        'org.mongojack:mongojackname:2.1.0',
         'log4j:log4j:1.2.16',
         'dom4j:dom4j:1.6.1',
         'org.mongodb:mongo-java-driver:3.0.4',

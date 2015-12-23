@@ -7,9 +7,8 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.lib.input.FileSplit;
 
-public class DataCleanMapper extends Mapper<LongWritable, Text, PageDataKey, PageDataValue> {
+public class DataCleanMapper extends Mapper<LongWritable, Text, Text, PageDataValue> {
 
-	private static PageDataKey pageDataKey = new PageDataKey();
 	private static PageDataValue pageDataValue = new PageDataValue();
 	
 	public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
@@ -25,17 +24,15 @@ public class DataCleanMapper extends Mapper<LongWritable, Text, PageDataKey, Pag
 					String domainCode = colmTokenizer.nextToken();
 					if (domainCode.startsWith("en")) {
 						try {
-							pageDataKey.pageTitle = URLDecoder.decode(colmTokenizer.nextToken(), "UTF-8");
-							if (pageDataKey.pageTitle.matches("^[a-zA-Z0-9 _-]*$")) {
-								pageDataKey.pageTitle = pageDataKey.pageTitle.replace("_", " ").trim();
-								if (pageDataKey.pageTitle .length() >0) {
+							String pageTitle = URLDecoder.decode(colmTokenizer.nextToken(), "UTF-8");
+							if (pageTitle.matches("^[a-zA-Z0-9 _]*$")) {
+								pageTitle = pageTitle.replace("_", " ").trim();
+								if (pageTitle .length() >0) {
+									pageDataValue.date = fileNameSplits[1];
 									pageDataValue.countViews = Integer.parseInt(colmTokenizer.nextToken());
 									String totalResponseSize = colmTokenizer.nextToken();
 
-									pageDataKey.date = fileNameSplits[1];
-									pageDataValue.nthHour = Integer.parseInt(fileNameSplits[2].substring(0,  5));
-									
-									context.write(pageDataKey, pageDataValue);
+									context.write(new Text(pageTitle), pageDataValue);
 								}
 							}
 						} catch (IllegalArgumentException e) {

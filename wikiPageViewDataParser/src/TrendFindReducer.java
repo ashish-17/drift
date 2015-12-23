@@ -7,20 +7,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
-import org.bson.BSONObject;
-import org.bson.BasicBSONObject;
 
-import com.mongodb.BasicDBObjectBuilder;
-import com.mongodb.hadoop.io.MongoUpdateWritable;
+public class TrendFindReducer extends Reducer<Text, PageDataValue, TrendKey, Text> {
 
-public class DataCleanReducer extends Reducer<Text, PageDataValue, NullWritable, MongoUpdateWritable> {
-
-    private MongoUpdateWritable reduceResult = new MongoUpdateWritable();
     private SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");
-    private SimpleDateFormat formatterOut = new SimpleDateFormat("yyyyMM");
     private Calendar calendar = Calendar.getInstance();
     
 	public void reduce(Text key, Iterable<PageDataValue> values, Context context)
@@ -96,25 +88,9 @@ public class DataCleanReducer extends Reducer<Text, PageDataValue, NullWritable,
 		
 		for (Entry<Date, Double> entry: trend.entrySet()) {
 
-			BasicBSONObject query=new BasicBSONObject();
-			query.append("_id", key.toString());
-			
-			BSONObject boVal = BasicDBObjectBuilder.start()
-								.add("date", formatter.format(entry.getKey()))
-								.add("viewCount", stats.containsKey(entry.getKey()) ? stats.get(entry.getKey()):0)
-								.add("trend", entry.getValue() * (Math.log(1 + totalPageViews)))
-								.get();
-			
-			//System.out.println(key.toString() + " - viewCount -" + (stats.containsKey(entry.getKey()) ? stats.get(entry.getKey()):0));
-			//System.out.println(key.toString() + " - trend -" + entry.getValue() * (Math.log(1 + totalPageViews)));
-			
-			BasicBSONObject pageTitleData = new BasicBSONObject(formatterOut.format(entry.getKey()), boVal);
-			BasicBSONObject pageTitleDataUpdate = new BasicBSONObject("$push", pageTitleData);
-			
-			reduceResult.setQuery(query);
-			reduceResult.setModifiers(pageTitleDataUpdate);
-			reduceResult.setUpsert(true);
-			context.write(null, reduceResult);
+			TrendKey trendKey = new TrendKey(formatter.format(entry.getKey()), entry.getValue() * (Math.log(1 + totalPageViews)));
+			context.write(trendKey, new Text(key.toString() + "," + formatter.format(entry.getKey()) + ","
+					+ (stats.containsKey(entry.getKey()) ? stats.get(entry.getKey()) : 0)));
 		}
 	}
 }

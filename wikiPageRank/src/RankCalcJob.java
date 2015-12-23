@@ -139,7 +139,7 @@ public class RankCalcJob {
 		Configuration conf = new Configuration();
 		Job job;
 		try {
-			conf.set("mongo.output.uri", "mongodb://52.34.106.174:27017/mongo_hadoop.page_rank");
+			//conf.set("mongo.output.uri", "mongodb://52.33.93.221:27017/mongo_hadoop.page_rank");
 			job = Job.getInstance(conf, "dumpToDB");
 
 			job.setJarByClass(RankCalcJob.class);

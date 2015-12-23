@@ -41,6 +41,6 @@
       </div>
   </div>
 </div><!-- /.container -->
-<script src="/js/pagecount.js"></script>
+<script src="js/pagecount.js"></script>
 
 <jsp:include page="footer.jsp" flush="true" />

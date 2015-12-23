@@ -1,0 +1,53 @@
+
+<CS512>
+	<project>
+		<ProjectName>Drift: Study of Wikipedia data trends.</ProjectName>
+		<StudentNames>
+			<Name>Xian</Name> <!--Yikun Xian -->
+			<Name>Muttena</Name> <!--Sanjivi Muttena -->
+			<Name>Jindal</Name> <!--Ashish Jindal -->
+		</StudentNames>
+		
+		<!-- do not touch -->
+		<ProjectStage>
+			<Stage>PA1</Stage>
+			<Stage>PA2</Stage>
+			<Stage>PA3</Stage>
+		</ProjectStage>
+		<StudentPics>
+			<Picture>A</Picture>
+			<Picture>B</Picture>
+		</StudentPics>
+		
+		<Identity>
+			<Email>ashish.jindal@rutgers.edu</Email>
+			<!-- Order: Xian -> Muttena -> Jindal (Descending last names) -->
+			<RUID>168000142, 164005979, 167004812</RUID>
+			<NetID>yx150, sm1727, aj523</NetID>			
+		</Identity>
+		
+		<!-- do not touch -->
+		<Affiliations>
+			<Professors></Professors>
+			<Companies></Companies>
+			<Awards></Awards>
+		</Affiliations>
+		
+		<Description>
+			<ProjectDescription>
+				<What>Hadoop driven data analysis of Wikipedia Log Dumps</What>
+				<Why>This project can be used for finding the most trending topics on Wikipedia using pageview count data. Also we can find how authoritative a Wiki page is by comparing its relative page rank information. </Why>
+			</ProjectDescription>
+			<Resources>Elastic Map Reduce (AWS), EC2 (AWS), S3 (AWS), MongoDB, Java, Spring, HTML, Bootstrap CSS, Highcharts JS</Resources>
+		</Description>
+		
+		<!-- Project demo is deployed (With a smaller dataset) at the following public domain - http://ashish-jindal.com/wiki -->
+		<Image>
+			<link>http://ashish-jindal.com/wiki/data/data-info.png</link>
+		</Image>
+		<UMLImage>
+			<link>http://ashish-jindal.com/wiki/data/system.png</link>
+		<UMLImage>
+		<SupervisorName>James Abello</SupervisorName>
+	</project>
+</CS512>
