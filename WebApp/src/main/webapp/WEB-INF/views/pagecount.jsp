@@ -1,5 +1,5 @@
 <jsp:include page="header.jsp" flush="true" />
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="js/lib/exporting.js"></script>
 
 <div class="jumbotron">
   <div class="container">

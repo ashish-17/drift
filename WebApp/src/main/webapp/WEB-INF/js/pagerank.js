@@ -173,4 +173,10 @@ $('#btn-search').click(function() { var titles = [];
         });
   }
 
+  (function() {
+      var type = 'cs';
+      type = types[type];
+      reset(type.titles.join(',,'), type.type);
+  })();
 });
+
